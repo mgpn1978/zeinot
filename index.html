@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZEINOT - Factor Humano</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #0a0a0a;
+  --white: #ffffff;
+  --gray-50: #f7f7f7;
+  --gray-100: #eeeeee;
+  --gray-200: #d4d4d4;
+  --gray-300: #a3a3a3;
+  --gray-400: #737373;
+  --gray-500: #525252;
+  --accent: #0a0a0a;
+  --font-display: 'Instrument Serif', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --transition: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--black);
+  background: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── NAV ─── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: transparent;
+  transition: background 0.4s var(--transition), padding 0.4s var(--transition), box-shadow 0.4s var(--transition);
+}
+.nav.scrolled {
+  padding: 14px 48px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+}
+.nav-logo { text-decoration: none; display: flex; align-items: center; }
+.nav-logo-img { height: 39px; width: auto; display: block; transition: height 0.4s var(--transition); }
+.nav.scrolled .nav-logo-img { height: 28px; }
+
+.nav-links { display: flex; gap: 8px; align-items: center; }
+.nav-links a {
+  font-size: 0.85rem; font-weight: 400; color: var(--black);
+  text-decoration: none;
+  padding: 9px 20px;
+  border-radius: 100px;
+  background: var(--white);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: background 0.25s var(--transition), color 0.25s var(--transition), border-color 0.25s var(--transition);
+}
+.nav-links a:hover { background: rgba(255,255,255,0.5); }
+.nav-links a.active { font-weight: 500; }
+
+/* Scrolled: outlined pills */
+.nav.scrolled .nav-links a {
+  background: transparent;
+  border-color: rgba(0,0,0,0.14);
+}
+.nav.scrolled .nav-links a:hover { background: rgba(0,0,0,0.07); border-color: transparent; }
+
+.nav-contact-btn {
+  padding: 9px 20px; border-radius: 100px;
+  background: var(--black); color: var(--white);
+  font-size: 0.85rem; font-weight: 500;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.25s var(--transition), color 0.25s var(--transition);
+}
+.nav-contact-btn:hover { background: var(--white); color: var(--black); }
+.nav.scrolled .nav-contact-btn:hover { background: var(--white); color: var(--black); }
+
+.nav-head-icon { display: flex; align-items: center; margin-left: 8px; }
+.nav-head-icon img { height: 36px; width: auto; display: block; }
+
+/* ─── HAMBURGER (mobile) ─── */
+.hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; background: none; border: none; padding: 8px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--black); transition: all 0.3s var(--transition); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  background-image: url('img/hero.webp');
+  background-size: cover;
+  background-position: center;
+  background-color: #e8edf2;
+}
+.hero::before { display: none; }
+.hero-content {
+  text-align: center; z-index: 2;
+  max-width: 800px; padding: 0 24px;
+  margin-top: 25vh;
+}
+.hero-label {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(255,255,255,0.7);
+  margin-bottom: 24px;
+  opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+  font-weight: 400; line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+}
+.hero-cta {
+  margin-top: 40px;
+  display: inline-block;
+  padding: 16px 40px; border-radius: 100px;
+  background: var(--black); color: var(--white);
+  font-size: 0.9rem; font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s var(--transition);
+  opacity: 0; animation: fadeUp 0.8s 0.7s forwards;
+}
+.hero-cta:hover { background: #222; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+
+/* ─── SECTIONS ─── */
+section { padding: 120px 48px; }
+.section-label {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--gray-300); text-align: center; margin-bottom: 20px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400; text-align: center;
+  line-height: 1.2; letter-spacing: -0.02em;
+  max-width: 700px; margin: 0 auto 24px;
+}
+.section-desc {
+  text-align: center; max-width: 620px; margin: 0 auto 60px;
+  font-size: 0.95rem; line-height: 1.7; color: var(--gray-400);
+}
+
+/* ─── QUIENES SOMOS ─── */
+#quienes-somos { background: var(--white); }
+.quienes-btn {
+  display: block; width: fit-content; margin: 0 auto; text-decoration: none; text-align: center;
+  padding: 14px 36px; border-radius: 100px;
+  background: var(--black); color: var(--white);
+  font-size: 0.85rem; font-weight: 500;
+  border: none; cursor: pointer;
+  transition: all 0.3s var(--transition);
+}
+.quienes-btn:hover { background: #222; transform: translateY(-1px); }
+
+/* ─── DIFERENCIA ─── */
+#diferencia { background: var(--gray-50); }
+.diferencia-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 16px;
+  max-width: 1200px; margin: 0 auto;
+}
+.diferencia-layout > :nth-child(1) { grid-column: 1; grid-row: 1 / 3; align-self: start; }
+.diferencia-layout > :nth-child(2) { grid-column: 2; grid-row: 1 / 3; min-height: 560px; cursor: pointer; }
+.diferencia-layout > :nth-child(3) { grid-column: 3; grid-row: 1; min-height: 270px; cursor: pointer; }
+.diferencia-layout > :nth-child(4) { grid-column: 3; grid-row: 2; min-height: 270px; cursor: pointer; }
+
+/* ─── ACCORDION ─── */
+.accordion { display: flex; flex-direction: column; }
+.accordion-item {
+  border-bottom: 1px solid var(--gray-200);
+  overflow: hidden;
+}
+.accordion-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 0; cursor: pointer;
+  background: none; border: none; width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem; font-weight: 400;
+  color: var(--black); text-align: left;
+  transition: color 0.3s var(--transition);
+}
+.accordion-header:hover { color: var(--gray-500); }
+.accordion-icon {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid var(--gray-200);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s var(--transition);
+}
+.accordion-icon svg { transition: transform 0.3s var(--transition); }
+.accordion-item.active .accordion-icon { background: var(--black); border-color: var(--black); }
+.accordion-item.active .accordion-icon svg { transform: rotate(45deg); }
+.accordion-item.active .accordion-icon svg line { stroke: var(--white); }
+.accordion-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.5s var(--transition), padding 0.5s var(--transition);
+}
+.accordion-item.active .accordion-body { max-height: 300px; }
+.accordion-body-inner {
+  padding: 0 0 22px 0;
+  font-size: 0.88rem; line-height: 1.7; color: var(--gray-400);
+}
+
+/* ─── IMAGE MOSAIC ─── */
+.mosaic-item {
+  border-radius: 16px; overflow: hidden;
+  position: relative;
+  background: var(--gray-100);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s var(--transition);
+}
+.mosaic-item:hover { transform: scale(1.01); }
+.mosaic-item::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 100px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.55));
+  border-radius: 0 0 16px 16px;
+  pointer-events: none;
+}
+.mosaic-label {
+  position: absolute; bottom: 16px; left: 18px;
+  font-size: 0.7rem; color: rgba(255,255,255,0.75);
+  z-index: 1; pointer-events: none;
+}
+.mosaic-label strong { display: block; font-size: 0.88rem; color: var(--white); font-weight: 500; margin-bottom: 2px; }
+
+/* ─── LIGHTBOX ─── */
+.lightbox {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 2000;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.lightbox.open { opacity: 1; pointer-events: all; }
+.lightbox-img {
+  max-width: 90vw; max-height: 88vh;
+  object-fit: contain;
+  border-radius: 8px;
+  transform: scale(0.96);
+  transition: transform 0.35s ease;
+}
+.lightbox.open .lightbox-img { transform: scale(1); }
+.lightbox-close {
+  position: absolute; top: 28px; right: 36px;
+  background: none; border: none;
+  color: rgba(255,255,255,0.6); font-size: 2rem;
+  cursor: pointer; line-height: 1;
+  transition: color 0.2s;
+}
+.lightbox-close:hover { color: var(--white); }
+
+/* ─── SERVICIOS ─── */
+#servicios { background: var(--gray-50); }
+.servicios-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 16px;
+  max-width: 1200px; margin: 0 auto;
+}
+.servicios-layout > :nth-child(1) { grid-column: 1; grid-row: 1 / 4; align-self: start; }
+.servicios-layout > :nth-child(2) { grid-column: 2; grid-row: 1; min-height: 560px; cursor: pointer; }
+.servicios-layout > :nth-child(3) { grid-column: 3; grid-row: 1; min-height: 560px; cursor: pointer; }
+.servicios-layout > :nth-child(4) { grid-column: 2; grid-row: 2; min-height: 560px; cursor: pointer; }
+.servicios-layout > :nth-child(5) { grid-column: 3; grid-row: 2; min-height: 560px; cursor: pointer; }
+.servicios-layout > :nth-child(6) { grid-column: 2 / 4; grid-row: 3; min-height: 270px; cursor: pointer; }
+
+/* ─── CLIENTES (logos) ─── */
+#clientes { background: var(--gray-50); padding: 80px 48px; }
+.clientes-title { text-align: center; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gray-300); margin-bottom: 40px; }
+.logos-track-wrapper {
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+.logos-track {
+  display: flex; align-items: center; gap: 60px;
+  animation: scrollLogos 25s linear infinite;
+  width: max-content;
+}
+.logos-track:hover { animation-play-state: paused; }
+.logo-item {
+  flex-shrink: 0;
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.45);
+  transition: filter 0.3s var(--transition);
+  user-select: none;
+}
+.logo-item:hover { filter: grayscale(0) opacity(1); }
+
+@keyframes scrollLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── TESTIMONIOS ─── */
+#testimonios { background: var(--black); color: var(--white); text-align: center; }
+#testimonios .section-label { color: var(--gray-500); }
+.testimonial-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-weight: 400; line-height: 1.3;
+  max-width: 700px; margin: 0 auto 32px;
+  font-style: italic;
+  opacity: 0.9;
+}
+.testimonial-author {
+  font-size: 0.8rem; color: var(--gray-400);
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  background: var(--white);
+  border-top: 1px solid var(--gray-100);
+  padding: 60px 48px 40px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 60px;
+  max-width: 1200px; margin: 0 auto;
+}
+.footer-logo { display: block; height: 32px; width: auto; margin-bottom: 16px; }
+.footer-tagline { font-size: 0.85rem; color: var(--gray-400); line-height: 1.6; }
+.footer-col h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gray-300); margin-bottom: 20px; }
+.footer-col a {
+  display: block; font-size: 0.88rem; color: var(--gray-500);
+  text-decoration: none; margin-bottom: 12px;
+  transition: color 0.3s var(--transition);
+}
+.footer-col a:hover { color: var(--black); }
+.footer-bottom {
+  max-width: 1200px; margin: 40px auto 0;
+  padding-top: 24px; border-top: 1px solid var(--gray-100);
+  font-size: 0.75rem; color: var(--gray-300);
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Base reveal — all animated elements start hidden */
+[data-reveal] {
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Direction variants */
+[data-reveal="up"]    { transform: translateY(50px); }
+[data-reveal="down"]  { transform: translateY(-50px); }
+[data-reveal="left"]  { transform: translateX(60px); }
+[data-reveal="right"] { transform: translateX(-60px); }
+[data-reveal="scale"] { transform: scale(0.92); filter: blur(4px); }
+[data-reveal="fade"]  { transform: none; }
+[data-reveal="blur"]  { transform: translateY(20px); filter: blur(8px); }
+
+/* Visible state — all converge to normal */
+[data-reveal].visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+  filter: blur(0);
+}
+
+/* Stagger delays via data attribute */
+[data-delay="1"] { transition-delay: 0.08s; }
+[data-delay="2"] { transition-delay: 0.16s; }
+[data-delay="3"] { transition-delay: 0.24s; }
+[data-delay="4"] { transition-delay: 0.32s; }
+[data-delay="5"] { transition-delay: 0.40s; }
+[data-delay="6"] { transition-delay: 0.48s; }
+[data-delay="7"] { transition-delay: 0.56s; }
+[data-delay="8"] { transition-delay: 0.64s; }
+
+/* Slower variant for big elements */
+[data-speed="slow"] {
+  transition-duration: 1.2s;
+}
+
+/* Accordion items stagger on reveal */
+.accordion-item[data-reveal] {
+  transition-duration: 0.7s;
+}
+
+/* Cards scale on reveal */
+.servicio-card[data-reveal],
+.mosaic-item[data-reveal] {
+  transition-duration: 0.8s;
+}
+
+/* Logo track reveal */
+.logos-track-wrapper[data-reveal] {
+  transition-duration: 1s;
+}
+
+/* Legacy .reveal class fallback */
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ─── MOBILE NAV DRAWER ─── */
+.mobile-nav {
+  position: fixed; top: 0; right: -100%; width: 100%; height: 100%;
+  background: var(--white); z-index: 999;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 32px;
+  transition: right 0.4s var(--transition);
+}
+.mobile-nav.open { right: 0; }
+.mobile-nav a { font-size: 1.5rem; font-weight: 400; color: var(--black); text-decoration: none; }
+.mobile-nav-close { position: absolute; top: 24px; right: 24px; background: none; border: none; font-size: 2rem; cursor: pointer; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  section { padding: 80px 24px; }
+  .nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .nav-head-icon { display: none; }
+  .hamburger { display: flex; }
+  .diferencia-layout, .servicios-layout { grid-template-columns: 1fr; }
+  .diferencia-layout > :nth-child(n),
+  .servicios-layout > :nth-child(n) {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+  /* Imágenes verticales — ratio 4:5 (feed Instagram) */
+  .diferencia-layout > :nth-child(2),
+  .diferencia-layout > :nth-child(3),
+  .servicios-layout > :nth-child(2),
+  .servicios-layout > :nth-child(3),
+  .servicios-layout > :nth-child(4),
+  .servicios-layout > :nth-child(5) { min-height: 0; aspect-ratio: 18 / 25; }
+  /* Imágenes horizontales */
+  .diferencia-layout > :nth-child(4),
+  .servicios-layout > :nth-child(6) { min-height: 260px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="#" class="nav-logo"><img src="img/Zeinot Logo FH-Negro.svg" alt="ZEINOT" class="nav-logo-img"></a>
+  <div class="nav-links">
+    <a href="#quienes-somos">Quiénes somos</a>
+    <a href="#diferencia">Qué nos diferencia</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="https://wa.me/5493516237172" target="_blank" rel="noopener" class="nav-contact-btn">Contacto</a>
+  </div>
+  <div class="nav-head-icon">
+    <img src="img/head.svg" alt="">
+  </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose">&times;</button>
+  <a href="#quienes-somos" onclick="closeMobileNav()">Quiénes somos</a>
+  <a href="#diferencia" onclick="closeMobileNav()">Qué nos diferencia</a>
+  <a href="#servicios" onclick="closeMobileNav()">Servicios</a>
+  <a href="#testimonios" onclick="closeMobileNav()">Testimonios</a>
+  <a href="https://wa.me/5493516237172" target="_blank" rel="noopener" onclick="closeMobileNav()">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <p class="hero-label">Factor Humano</p>
+    <h1>La diferencia estratégica,<br><em>que no se puede tercerizar</em></h1>
+    <a href="#quienes-somos" class="hero-cta">Conocer más</a>
+  </div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section id="quienes-somos">
+  <p class="section-label" data-reveal="fade" data-delay="1">Quiénes Somos</p>
+  <h2 class="section-title" data-reveal="blur" data-delay="2">Más que una agencia.<br>Un equipo presente</h2>
+  <p class="section-desc" data-reveal="up" data-delay="3">En un mercado saturado de automatizaciones, estructuras impersonales y promesas tercerizadas, elegimos otra cosa: trabajar con criterio, sensibilidad y responsabilidad humana. Somos un grupo de publicistas, especialistas digitales, diseñadores y productores. Todo eso nos hace una agencia. Pero también es lo que nos hace una persona que te puede mirar a los ojos, poner un objetivo, y seguir de cerca.</p>
+  <a href="https://wa.me/5493516237172" target="_blank" rel="noopener" class="quienes-btn" data-reveal="scale" data-delay="4">Conversemos</a>
+</section>
+
+<!-- LO QUE NOS DIFERENCIA -->
+<section id="diferencia">
+  <p class="section-label" data-reveal="fade" data-delay="1">Lo que nos diferencia</p>
+  <h2 class="section-title" data-reveal="blur" data-delay="2">El valor que no aparece<br>en ningún presupuesto</h2>
+  <p class="section-desc" data-reveal="up" data-delay="3">El factor humano es más que un concepto.<br>Es nuestra manera de trabajar.</p>
+
+  <div class="diferencia-layout">
+    <div class="accordion">
+      <div class="accordion-item active" data-reveal="left" data-delay="1">
+        <button class="accordion-header">
+          <span>Involucramiento genuino</span>
+          <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 14 14"><line x1="7" y1="0" x2="7" y2="14" stroke="#0a0a0a" stroke-width="1.5"/><line x1="0" y1="7" x2="14" y2="7" stroke="#0a0a0a" stroke-width="1.5"/></svg></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">Nos metemos de lleno en cada proyecto. No somos un proveedor más: somos un equipo que entiende tu negocio, tus desafíos y tus metas como si fueran propios. Cada decisión está respaldada por empatía y compromiso real.</div>
+        </div>
+      </div>
+      <div class="accordion-item" data-reveal="left" data-delay="2">
+        <button class="accordion-header">
+          <span>Disponibilidad y presencia</span>
+          <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 14 14"><line x1="7" y1="0" x2="7" y2="14" stroke="#0a0a0a" stroke-width="1.5"/><line x1="0" y1="7" x2="14" y2="7" stroke="#0a0a0a" stroke-width="1.5"/></svg></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">Estar presentes no es solo una frase. Es responder cuando hace falta, anticipar problemas y estar en cada reunión con la misma energía del primer día. Creemos que la cercanía genera confianza y la confianza genera resultados.</div>
+        </div>
+      </div>
+      <div class="accordion-item" data-reveal="left" data-delay="3">
+        <button class="accordion-header">
+          <span>Relación, no transacción</span>
+          <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 14 14"><line x1="7" y1="0" x2="7" y2="14" stroke="#0a0a0a" stroke-width="1.5"/><line x1="0" y1="7" x2="14" y2="7" stroke="#0a0a0a" stroke-width="1.5"/></svg></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">No buscamos clientes, buscamos socios. Cada vínculo que construimos se basa en la transparencia, el respeto mutuo y la visión a largo plazo. Tu éxito es nuestro éxito, y eso se nota en cada interacción.</div>
+        </div>
+      </div>
+      <div class="accordion-item" data-reveal="left" data-delay="4">
+        <button class="accordion-header">
+          <span>Estrategia medida</span>
+          <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 14 14"><line x1="7" y1="0" x2="7" y2="14" stroke="#0a0a0a" stroke-width="1.5"/><line x1="0" y1="7" x2="14" y2="7" stroke="#0a0a0a" stroke-width="1.5"/></svg></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">Cada acción tiene un porqué y un para qué. Medimos, analizamos y optimizamos constantemente. No improvisamos: planificamos con datos y ejecutamos con creatividad para maximizar cada inversión.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mosaic-item" data-reveal="scale" data-delay="2" data-src="img/oulton.webp" style="background-image: url('img/oulton.webp'); background-size: cover; background-position: center;">
+      <span class="mosaic-label"><strong>Oulton</strong>Campaña / Branding</span>
+    </div>
+    <div class="mosaic-item" data-reveal="right" data-delay="3" data-src="img/dona-eva.webp" style="background-image: url('img/dona-eva.webp'); background-size: cover; background-position: center;">
+      <span class="mosaic-label"><strong>Doña Eva</strong>Branding / Packaging</span>
+    </div>
+    <div class="mosaic-item" data-reveal="right" data-delay="4" data-src="img/neverland.webp" style="background-image: url('img/neverland.webp'); background-size: cover; background-position: center;">
+      <span class="mosaic-label"><strong>Neverland</strong>Campaña / Digital</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <p class="section-label" data-reveal="fade" data-delay="1">Servicios</p>
+  <h2 class="section-title" data-reveal="blur" data-delay="2">Lo que hacemos<br><em style="font-family: var(--font-display); font-style: italic;">(y lo más importante: cómo lo hacemos)</em></h2>
+
+  <div class="servicios-layout">
+    <div class="accordion">
+      <div class="accordion-item active" data-reveal="left" data-delay="1">
+        <button class="accordion-header">
+          <span>Planificación y Compra de Medios</span>
+          <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 14 14"><line x1="7" y1="0" x2="7" y2="14" stroke="#0a0a0a" stroke-width="1.5"/><line x1="0" y1="7" x2="14" y2="7" stroke="#0a0a0a" stroke-width="1.5"/></svg></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">Diseñamos estrategias de medios que maximizan el impacto de tu inversión. Negociamos, planificamos y optimizamos cada pauta para que tu mensaje llegue al público correcto, en el momento justo y con la frecuencia ideal.</div>
+        </div>
+      </div>
+      <div class="accordion-item" data-reveal="left" data-delay="2">
+        <button class="accordion-header">
+          <span>Publicidad & Creatividad</span>
+          <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 14 14"><line x1="7" y1="0" x2="7" y2="14" stroke="#0a0a0a" stroke-width="1.5"/><line x1="0" y1="7" x2="14" y2="7" stroke="#0a0a0a" stroke-width="1.5"/></svg></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">Ideas que conectan, mensajes que resuenan. Nuestro equipo creativo desarrolla conceptos publicitarios que no solo llaman la atención, sino que construyen marca y generan conversiones reales.</div>
+        </div>
+      </div>
+      <div class="accordion-item" data-reveal="left" data-delay="3">
+        <button class="accordion-header">
+          <span>Digital & Paid Media</span>
+          <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 14 14"><line x1="7" y1="0" x2="7" y2="14" stroke="#0a0a0a" stroke-width="1.5"/><line x1="0" y1="7" x2="14" y2="7" stroke="#0a0a0a" stroke-width="1.5"/></svg></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">Campañas digitales pensadas con estrategia y ejecutadas con precisión. Google Ads, Meta Ads, programática y más. Cada peso invertido tiene un propósito claro y un KPI que lo respalda.</div>
+        </div>
+      </div>
+      <div class="accordion-item" data-reveal="left" data-delay="4">
+        <button class="accordion-header">
+          <span>Gestión de Redes Sociales</span>
+          <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 14 14"><line x1="7" y1="0" x2="7" y2="14" stroke="#0a0a0a" stroke-width="1.5"/><line x1="0" y1="7" x2="14" y2="7" stroke="#0a0a0a" stroke-width="1.5"/></svg></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">Contenido con criterio, no por cantidad. Gestionamos tus redes con una mirada estratégica que cuida tu marca, genera comunidad y convierte seguidores en clientes.</div>
+        </div>
+      </div>
+      <div class="accordion-item" data-reveal="left" data-delay="5">
+        <button class="accordion-header">
+          <span>Prensa y Relaciones con Medios</span>
+          <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 14 14"><line x1="7" y1="0" x2="7" y2="14" stroke="#0a0a0a" stroke-width="1.5"/><line x1="0" y1="7" x2="14" y2="7" stroke="#0a0a0a" stroke-width="1.5"/></svg></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">Construimos narrativas que los medios quieren contar. Gestionamos prensa, notas, entrevistas y apariciones que posicionan tu marca con credibilidad y autoridad en tu sector.</div>
+        </div>
+      </div>
+      <div class="accordion-item" data-reveal="left" data-delay="6">
+        <button class="accordion-header">
+          <span>Influencers Marketing</span>
+          <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 14 14"><line x1="7" y1="0" x2="7" y2="14" stroke="#0a0a0a" stroke-width="1.5"/><line x1="0" y1="7" x2="14" y2="7" stroke="#0a0a0a" stroke-width="1.5"/></svg></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">Conectamos tu marca con los creadores de contenido adecuados. Seleccionamos influencers por afinidad real con tu marca, no solo por números, y gestionamos cada campaña de principio a fin.</div>
+        </div>
+      </div>
+      <div class="accordion-item" data-reveal="left" data-delay="7">
+        <button class="accordion-header">
+          <span>Eventos & Producción</span>
+          <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 14 14"><line x1="7" y1="0" x2="7" y2="14" stroke="#0a0a0a" stroke-width="1.5"/><line x1="0" y1="7" x2="14" y2="7" stroke="#0a0a0a" stroke-width="1.5"/></svg></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">Desde la idea hasta la ejecución. Producimos eventos, sesiones fotográficas, videos y todo tipo de contenido audiovisual con la calidad y el cuidado que tu marca merece.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mosaic-item" data-reveal="scale" data-delay="2" data-src="img/s-sali-invierno.webp" style="background-image: url('img/s-sali-invierno.webp'); background-size: cover; background-position: center;">
+      <span class="mosaic-label"><strong>Invierno</strong>Campaña / Branding</span>
+    </div>
+    <div class="mosaic-item" data-reveal="right" data-delay="3" data-src="img/s-drean-hombres.webp" style="background-image: url('img/s-drean-hombres.webp'); background-size: cover; background-position: center;">
+      <span class="mosaic-label"><strong>Drean</strong>Campaña / Digital</span>
+    </div>
+    <div class="mosaic-item" data-reveal="up" data-delay="4" data-src="img/s-drean-mujer-mar.webp" style="background-image: url('img/s-drean-mujer-mar.webp'); background-size: cover; background-position: center;">
+      <span class="mosaic-label"><strong>Drean</strong>mujer / mar</span>
+    </div>
+    <div class="mosaic-item" data-reveal="up" data-delay="5" data-src="img/s-emi.webp" style="background-image: url('img/s-emi.webp'); background-size: cover; background-position: center;">
+      <span class="mosaic-label"><strong>EMI</strong>Campaña / Digital</span>
+    </div>
+    <div class="mosaic-item" data-reveal="up" data-delay="6" data-src="img/s-perro.webp" style="background-image: url('img/s-perro.webp'); background-size: cover; background-position: center;">
+      <span class="mosaic-label"><strong>Salimos todos</strong>Campaña / Digital</span>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section id="clientes">
+  <p class="clientes-title" data-reveal="fade" data-delay="1">Clientes</p>
+  <div class="logos-track-wrapper" data-reveal="up" data-delay="2" data-speed="slow">
+    <div class="logos-track" id="logosTrack">
+      <img class="logo-item" src="img/logos/mabe.svg" alt="Mabe">
+      <img class="logo-item" src="img/logos/drean.svg" alt="Drean">
+      <img class="logo-item" src="img/logos/allende.svg" alt="Sanatorio Allende">
+      <img class="logo-item" src="img/logos/met.svg" alt="MET Medicina Privada">
+      <img class="logo-item" src="img/logos/farmacia.svg" alt="Farmacia del Sanatorio">
+      <img class="logo-item" src="img/logos/oulton.svg" alt="Oulton">
+      <img class="logo-item" src="img/logos/camara.svg" alt="Cámara de Farmacias">
+      <img class="logo-item" src="img/logos/fundacion-progreso.svg" alt="Fundación para el Progreso de la Medicina">
+      <img class="logo-item" src="img/logos/lega.svg" alt="Lega Laboratorio">
+      <img class="logo-item" src="img/logos/montironi.svg" alt="Grupo Montironi">
+      <img class="logo-item" src="img/logos/domat.svg" alt="Domat">
+      <img class="logo-item" src="img/logos/construire.svg" alt="Construire">
+      <img class="logo-item" src="img/logos/rosella.svg" alt="La Rosella">
+      <img class="logo-item" src="img/logos/alto-paz.svg" alt="Alto Paz Tower">
+      <img class="logo-item" src="img/logos/bancor.svg" alt="Bancor">
+      <img class="logo-item" src="img/logos/cordobesa.svg" alt="Cordobesa">
+      <img class="logo-item" src="img/logos/bezza.svg" alt="Bezza">
+      <img class="logo-item" src="img/logos/taca-taca.svg" alt="Taca Taca">
+      <img class="logo-item" src="img/logos/firenze.svg" alt="Firenze">
+      <img class="logo-item" src="img/logos/pamela.svg" alt="Pamela">
+      <img class="logo-item" src="img/logos/musel.svg" alt="Musel">
+      <img class="logo-item" src="img/logos/steinhauser.svg" alt="Steinhauser">
+      <img class="logo-item" src="img/logos/ariccio.svg" alt="Estudio Ariccio">
+      <img class="logo-item" src="img/logos/dona-eva.svg" alt="Doña Eva">
+      <img class="logo-item" src="img/logos/neverland.svg" alt="Neverland">
+      <img class="logo-item" src="img/logos/emi.svg" alt="EMI">
+      <img class="logo-item" src="img/logos/sipssa.svg" alt="SIPSSA">
+      <img class="logo-item" src="img/logos/indom.svg" alt="Indom">
+      <img class="logo-item" src="img/logos/ccc.svg" alt="Cámara de Comercio de Córdoba">
+      <!-- Duplicados para loop infinito -->
+      <img class="logo-item" src="img/logos/mabe.svg" alt="Mabe">
+      <img class="logo-item" src="img/logos/drean.svg" alt="Drean">
+      <img class="logo-item" src="img/logos/allende.svg" alt="Sanatorio Allende">
+      <img class="logo-item" src="img/logos/met.svg" alt="MET Medicina Privada">
+      <img class="logo-item" src="img/logos/farmacia.svg" alt="Farmacia del Sanatorio">
+      <img class="logo-item" src="img/logos/oulton.svg" alt="Oulton">
+      <img class="logo-item" src="img/logos/camara.svg" alt="Cámara de Farmacias">
+      <img class="logo-item" src="img/logos/fundacion-progreso.svg" alt="Fundación para el Progreso de la Medicina">
+      <img class="logo-item" src="img/logos/lega.svg" alt="Lega Laboratorio">
+      <img class="logo-item" src="img/logos/montironi.svg" alt="Grupo Montironi">
+      <img class="logo-item" src="img/logos/domat.svg" alt="Domat">
+      <img class="logo-item" src="img/logos/construire.svg" alt="Construire">
+      <img class="logo-item" src="img/logos/rosella.svg" alt="La Rosella">
+      <img class="logo-item" src="img/logos/alto-paz.svg" alt="Alto Paz Tower">
+      <img class="logo-item" src="img/logos/bancor.svg" alt="Bancor">
+      <img class="logo-item" src="img/logos/cordobesa.svg" alt="Cordobesa">
+      <img class="logo-item" src="img/logos/bezza.svg" alt="Bezza">
+      <img class="logo-item" src="img/logos/taca-taca.svg" alt="Taca Taca">
+      <img class="logo-item" src="img/logos/firenze.svg" alt="Firenze">
+      <img class="logo-item" src="img/logos/pamela.svg" alt="Pamela">
+      <img class="logo-item" src="img/logos/musel.svg" alt="Musel">
+      <img class="logo-item" src="img/logos/steinhauser.svg" alt="Steinhauser">
+      <img class="logo-item" src="img/logos/ariccio.svg" alt="Estudio Ariccio">
+      <img class="logo-item" src="img/logos/dona-eva.svg" alt="Doña Eva">
+      <img class="logo-item" src="img/logos/neverland.svg" alt="Neverland">
+      <img class="logo-item" src="img/logos/emi.svg" alt="EMI">
+      <img class="logo-item" src="img/logos/sipssa.svg" alt="SIPSSA">
+      <img class="logo-item" src="img/logos/indom.svg" alt="Indom">
+      <img class="logo-item" src="img/logos/ccc.svg" alt="Cámara de Comercio de Córdoba">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios">
+  <p class="section-label" data-reveal="fade" data-delay="1">Testimonios</p>
+  <blockquote class="testimonial-quote" data-reveal="blur" data-delay="2" data-speed="slow">
+    "Cuando todo se acelera, ellos son el equipo que suma criterio y calma."
+  </blockquote>
+  <p class="testimonial-author" data-reveal="up" data-delay="4">Gerente de Marketing Retail</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contacto">
+  <div class="footer-grid">
+    <div data-reveal="up" data-delay="1">
+      <img src="img/Zeinot Logo FH-Negro.svg" alt="ZEINOT" class="footer-logo">
+      <p class="footer-tagline">La diferencia estratégica que no se puede tercerizar. Factor humano aplicado a cada proyecto.</p>
+    </div>
+    <div class="footer-col" data-reveal="up" data-delay="2">
+      <h4>Navegación</h4>
+      <a href="#quienes-somos">Quiénes somos</a>
+      <a href="#diferencia">Qué nos diferencia</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="footer-col" data-reveal="up" data-delay="3">
+      <h4>Redes</h4>
+      <a href="https://www.instagram.com/agenciazeinot/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/company/zeinot-estrategias-con-alma/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.facebook.com/agenciazeinot/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="footer-bottom" data-reveal="fade" data-delay="4">
+    <span>&copy; 2026 Zeinot. Todos los derechos reservados.</span>
+    <span>Av. Rafael Núñez 3835, Oficina 12 y 13, Cerro de las Rosas, Córdoba</span>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+// ─── NAV SCROLL ───
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ─── MOBILE NAV ───
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileNav = document.getElementById('mobileNav');
+const mobileNavClose = document.getElementById('mobileNavClose');
+hamburgerBtn.addEventListener('click', () => mobileNav.classList.add('open'));
+mobileNavClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+function closeMobileNav() { mobileNav.classList.remove('open'); }
+
+// ─── ACCORDION ───
+document.querySelectorAll('.accordion-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const item = header.parentElement;
+    const accordion = item.parentElement;
+    const isActive = item.classList.contains('active');
+    accordion.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+    if (!isActive) item.classList.add('active');
+  });
+});
+
+// ─── SCROLL REVEAL (data-reveal system) ───
+const revealElements = document.querySelectorAll('[data-reveal]');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealElements.forEach(el => revealObserver.observe(el));
+
+// ─── LIGHTBOX ───
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+document.querySelectorAll('.mosaic-item[data-src]').forEach(item => {
+  item.addEventListener('click', () => {
+    lightboxImg.src = item.dataset.src;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => { lightboxImg.src = ''; }, 350);
+}
+
+// Legacy .reveal fallback
+const legacyReveals = document.querySelectorAll('.reveal');
+const legacyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      legacyObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+legacyReveals.forEach(el => legacyObserver.observe(el));
+
+// ─── ACTIVE NAV LINK ───
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a:not(.nav-contact-btn)');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 200) current = section.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>

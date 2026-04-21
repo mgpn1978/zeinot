@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuestro Equipo – Smart Smile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ════════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════════ */
+    .esp-hero {
+      position: relative;
+      padding: 180px 0 110px;
+      text-align: center;
+      background:
+        linear-gradient(rgba(255,255,255,0.80), rgba(255,255,255,0.88)),
+        url('images/espacio-recepcion.webp') center / cover no-repeat;
+    }
+    .esp-hero__eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 24px;
+    }
+    .esp-hero__title {
+      font-size: clamp(36px, 5.5vw, 64px);
+      font-weight: 300;
+      color: #111;
+      line-height: 1.12;
+      margin-bottom: 24px;
+    }
+    .esp-hero__title strong {
+      font-weight: 400;
+      color: #111;
+    }
+    .esp-hero__sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: #555;
+      max-width: 520px;
+      margin: 0 auto 48px;
+      line-height: 1.8;
+    }
+    .esp-hero__pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .esp-hero__pill {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(69,47,103,.18);
+      border-radius: 100px;
+      padding: 9px 22px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--purple);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+    .esp-hero__pill:hover {
+      background: rgba(255,255,255,0.95);
+      border-color: rgba(69,47,103,.35);
+      box-shadow: 0 4px 16px rgba(69,47,103,.1);
+    }
+
+    /* ════════════════════════════════════════════════
+       5.1 – HISTORIA Y MISIÓN
+    ════════════════════════════════════════════════ */
+    .mision {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .mision__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .mision__text .section-eyebrow { text-align: left; margin-bottom: 16px; }
+    .mision__text .section-title   { text-align: left; margin-bottom: 24px; }
+    .mision__body {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.85;
+    }
+    .mision__body p + p { margin-top: 18px; }
+    .mision__body strong {
+      font-weight: 600;
+      color: #2a2a2a;
+    }
+
+    .mision__values {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .mision__value {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .mision__value-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(69,47,103,.08) 0%, rgba(194,14,97,.08) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mision__value-icon svg { width: 22px; height: 22px; }
+    .mision__value-copy h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 6px;
+    }
+    .mision__value-copy p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .mision__stat-row {
+      display: flex;
+      gap: 32px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(0,0,0,.07);
+    }
+    .mision__stat { flex: 1; }
+    .mision__stat-num {
+      font-size: 32px;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .mision__stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    /* ════════════════════════════════════════════════
+       5.2 – EQUIPO PROFESIONAL
+    ════════════════════════════════════════════════ */
+    .equipo {
+      padding: 100px 0;
+      background: #fafafa;
+    }
+    .equipo .container { text-align: center; }
+    .equipo .section-subtitle { margin: 0 auto 64px; }
+
+    .equipo__grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 24px;
+      text-align: left;
+    }
+    /* Cada card ocupa 2 de 6 columnas → 3 por fila */
+    .doctor-card { grid-column: span 2; }
+    /* 4ª y 5ª card: centradas en segunda fila */
+    .doctor-card:nth-child(4) { grid-column: 2 / 4; }
+    .doctor-card:nth-child(5) { grid-column: 4 / 6; }
+
+    .doctor-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,.06);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .doctor-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(69,47,103,.12);
+    }
+
+    /* Foto placeholder */
+    .doctor-card__photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(160deg, #d8d0e8 0%, #c4b8d8 50%, #b8a8c8 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .doctor-card__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(1.05);
+      transition: filter 0.5s ease;
+    }
+    .doctor-card:hover .doctor-card__photo img { filter: grayscale(60%) contrast(1.05); }
+    .doctor-card__photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .doctor-card__initials {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 700;
+      color: rgba(69,47,103,.6);
+      font-family: var(--font);
+    }
+    .doctor-card__specialty-badge {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background: rgba(69,47,103,.85);
+      backdrop-filter: blur(8px);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .doctor-card__body { padding: 24px; }
+    .doctor-card__name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+    .doctor-card__role {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--pink);
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+    .doctor-card__desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .doctor-card__meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(0,0,0,.06);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .doctor-card__meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+      color: #444;
+      line-height: 1.5;
+    }
+    .doctor-card__meta-item svg {
+      flex-shrink: 0;
+      width: 13px;
+      height: 13px;
+      margin-top: 1px;
+      color: var(--purple);
+    }
+
+    .doctor-card__stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .doctor-card__stat { flex: 1; }
+    .doctor-card__stat-num {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--purple);
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .doctor-card__stat-label {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--gray);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .doctor-card__cta {
+      display: block;
+      text-align: center;
+      padding: 11px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(69,47,103,.2);
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--purple);
+      text-decoration: none;
+      transition: all var(--transition);
+      letter-spacing: 0.03em;
+    }
+    .doctor-card__cta:hover {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: var(--white);
+    }
+
+    /* ════════════════════════════════════════════════
+       5.3 – RECORRIDO VIRTUAL
+    ════════════════════════════════════════════════ */
+    .recorrido {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .recorrido .section-subtitle { margin: 0 auto 64px; text-align: center; }
+
+    /* Galería 2 + 4 + 4 */
+    .recorrido__gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 64px;
+    }
+    .recorrido__photo {
+      border-radius: 16px;
+      overflow: hidden;
+      background: #e8e4f0;
+      position: relative;
+    }
+    .recorrido__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .recorrido__photo:hover img { transform: scale(1.04); }
+
+    /* Fila 1: 2 fotos anchas */
+    .recorrido__photo:nth-child(1),
+    .recorrido__photo:nth-child(2) { grid-column: span 2; aspect-ratio: 16/9; }
+    /* Filas 2 y 3: 4 fotos cuadradas cada una */
+    .recorrido__photo:nth-child(n+3) { grid-column: span 1; aspect-ratio: 4/3; }
+
+    /* Placeholder interior para cuando no hay foto */
+    .recorrido__photo-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #ede9f5 0%, #e4ddf0 100%);
+    }
+    .recorrido__photo-placeholder svg {
+      width: 32px;
+      height: 32px;
+      color: rgba(69,47,103,.3);
+    }
+    .recorrido__photo-placeholder span {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(69,47,103,.4);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .recorrido__photo-label {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      background: rgba(0,0,0,.45);
+      backdrop-filter: blur(6px);
+      border-radius: 8px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,.9);
+    }
+
+    /* Tour 360 + Video */
+    .recorrido__immersive {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .recorrido__embed {
+      border-radius: 20px;
+      overflow: hidden;
+      background: #1a1020;
+      position: relative;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .recorrido__embed-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #2a1a3e 0%, #1a0f28 100%);
+    }
+    .recorrido__embed-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 32px;
+    }
+    .recorrido__embed-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      border: 2px solid rgba(255,255,255,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+    .recorrido__embed-icon:hover { background: rgba(255,255,255,.18); }
+    .recorrido__embed-icon svg { width: 28px; height: 28px; color: var(--white); }
+    .recorrido__embed-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .recorrido__embed-sub {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,.5);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .recorrido__embed-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 10px;
+      font-weight: 600;
+      color: rgba(255,255,255,.5);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ════════════════════════════════════════════════
+       LIGHTBOX
+    ════════════════════════════════════════════════ */
+    .recorrido__photo { cursor: zoom-in; }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10, 6, 18, 0.93);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease;
+      padding: 32px;
+    }
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .lightbox__img-wrap {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox__img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 12px;
+      object-fit: contain;
+      box-shadow: 0 32px 80px rgba(0,0,0,.6);
+      transform: scale(0.96);
+      transition: transform 0.28s ease;
+      display: block;
+    }
+    .lightbox.open .lightbox__img { transform: scale(1); }
+
+    .lightbox__caption {
+      position: absolute;
+      bottom: -36px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,.5);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .lightbox__close {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      color: var(--white);
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition);
+      font-family: var(--font);
+    }
+    .lightbox__close:hover { background: rgba(255,255,255,.2); }
+
+    .lightbox__nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      color: var(--white);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition);
+    }
+    .lightbox__nav:hover { background: rgba(255,255,255,.2); }
+    .lightbox__nav--prev { left: 20px; }
+    .lightbox__nav--next { right: 20px; }
+    .lightbox__nav svg { width: 20px; height: 20px; }
+
+    /* ════════════════════════════════════════════════
+       CTA FINAL
+    ════════════════════════════════════════════════ */
+    .esp-cta {
+      padding: 100px 0;
+      background: var(--gradient);
+      text-align: center;
+    }
+    .esp-cta .section-title.light  { margin-bottom: 16px; }
+    .esp-cta .section-subtitle.light { margin: 0 auto 40px; }
+    .esp-cta__actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .equipo__grid { grid-template-columns: repeat(4, 1fr); }
+      .doctor-card { grid-column: span 2; }
+      .doctor-card:nth-child(4),
+      .doctor-card:nth-child(5) { grid-column: span 2; }
+    }
+    @media (max-width: 900px) {
+      .mision__grid { grid-template-columns: 1fr; gap: 56px; }
+      .recorrido__immersive { grid-template-columns: 1fr; }
+      .recorrido__gallery { grid-template-columns: repeat(2, 1fr); }
+      .recorrido__photo:nth-child(1),
+      .recorrido__photo:nth-child(2) { grid-column: span 1; aspect-ratio: 4/3; }
+      .recorrido__photo:nth-child(n+3) { grid-column: span 1; aspect-ratio: 4/3; }
+    }
+    @media (max-width: 680px) {
+      .esp-hero { padding: 140px 0 72px; }
+      .equipo__grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .mision__stat-row { gap: 16px; }
+      .recorrido__gallery { grid-template-columns: 1fr; }
+      .recorrido__photo:nth-child(n) { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 16/9 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVBAR ──────────────────────────────────────────────── -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo navbar__logo--full">
+        <img src="logo.svg" alt="Smart Smile" />
+      </a>
+      <a href="index.html" class="navbar__logo navbar__logo--icon">
+        <img src="logo-icon.svg" alt="Smart Smile" />
+      </a>
+      <nav class="navbar__nav">
+        <a href="alineadores.html">Alineadores</a>
+        <a href="tratamientos.html">Tratamientos</a>
+        <a href="resultados.html">Resultados</a>
+        <a href="especialistas.html" class="active" style="color:var(--pink)">Especialistas</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <div class="navbar__actions">
+        <a href="https://wa.me/5491127553902" target="_blank" class="navbar__phone">
+          <svg class="navbar__wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          11 2755 3902
+        </a>
+        <a href="index.html#reserva" class="btn btn--nav-cta">Agendá tu turno</a>
+        <a href="#" class="navbar__lang">EN</a>
+        <button class="navbar__hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="navbar__mobile-menu" id="mobileMenu">
+      <a href="alineadores.html">Alineadores</a>
+      <a href="tratamientos.html">Tratamientos</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="especialistas.html">Especialistas</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#reserva" class="btn btn--gradient">Agendá tu turno</a>
+    </div>
+  </header>
+
+  <!-- ─── HERO ─────────────────────────────────────────────────── -->
+  <section class="esp-hero">
+    <div class="container">
+      <p class="esp-hero__eyebrow">Smart Smile · Centro Odontológico</p>
+      <h1 class="esp-hero__title">El equipo detrás<br />de <strong>cada sonrisa</strong></h1>
+      <p class="esp-hero__sub">Profesionales con formación internacional, tecnología de vanguardia y un trato que hace la diferencia desde la primera consulta.</p>
+      <div class="esp-hero__pills">
+        <a href="#mision" class="esp-hero__pill">Historia y misión</a>
+        <a href="#equipo" class="esp-hero__pill">Equipo profesional</a>
+        <a href="#clinica" class="esp-hero__pill">Nuestra clínica</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 5.1 HISTORIA Y MISIÓN ────────────────────────────────── -->
+  <section class="mision" id="mision">
+    <div class="container">
+      <div class="mision__grid">
+
+        <!-- Texto -->
+        <div class="mision__text">
+          <p class="section-eyebrow">HISTORIA Y MISIÓN</p>
+          <h2 class="section-title">Por qué hacemos<br />lo que hacemos</h2>
+          <div class="mision__body">
+            <p>En Smart Smile creemos que <strong>una sonrisa puede transformar vidas</strong>. Por eso combinamos la tecnología más avanzada en alineadores invisibles con un trato cercano, personalizado y profesional. Cada paciente es único, y cada sonrisa que diseñamos refleja esa individualidad.</p>
+            <p>El centro nació de una convicción simple: que la ortodoncia moderna debía ser discreta, predecible y accesible. Fundado por un equipo de especialistas con formación en Buenos Aires, Madrid y Nueva York, Smart Smile fue pensado desde el primer día para cambiar la experiencia del paciente: sin moldes incómodos, sin sorpresas en el presupuesto, sin visitas innecesarias.</p>
+            <p>Nuestra filosofía de trabajo parte de la <strong>transparencia radical</strong>: te mostramos digitalmente cómo va a quedar tu sonrisa antes de empezar, te damos un precio cerrado desde el primer día y te acompañamos en cada etapa con el mismo profesional. No somos una franquicia ni un centro masivo. Somos un equipo pequeño, comprometido y obsesionado con el resultado.</p>
+            <p>Cuando elegís Smart Smile, podés esperar tres cosas: tecnología de primer nivel, honestidad absoluta sobre tu caso y una experiencia que te hace querer volver.</p>
+          </div>
+          <div class="mision__stat-row">
+            <div class="mision__stat">
+              <div class="mision__stat-num">+2.400</div>
+              <div class="mision__stat-label">Pacientes tratados</div>
+            </div>
+            <div class="mision__stat">
+              <div class="mision__stat-num">8</div>
+              <div class="mision__stat-label">Años de trayectoria</div>
+            </div>
+            <div class="mision__stat">
+              <div class="mision__stat-num">97%</div>
+              <div class="mision__stat-label">Satisfacción declarada</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Valores -->
+        <div class="mision__values">
+          <div class="mision__value">
+            <div class="mision__value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="mision__value-copy">
+              <h4>Tecnología de vanguardia</h4>
+              <p>Escaneo intraoral 3D, planificación digital y alineadores fabricados con los materiales más avanzados del mercado.</p>
+            </div>
+          </div>
+          <div class="mision__value">
+            <div class="mision__value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <div class="mision__value-copy">
+              <h4>Resultados predecibles</h4>
+              <p>Ves la simulación de tu sonrisa antes de empezar. Tiempos y precios cerrados desde el primer día, sin letra chica.</p>
+            </div>
+          </div>
+          <div class="mision__value">
+            <div class="mision__value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </div>
+            <div class="mision__value-copy">
+              <h4>Atención personalizada</h4>
+              <p>El mismo profesional te acompaña durante todo el tratamiento. No sos un número: sos un caso, una historia, una sonrisa.</p>
+            </div>
+          </div>
+          <div class="mision__value">
+            <div class="mision__value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="mision__value-copy">
+              <h4>Transparencia total</h4>
+              <p>Si tu caso no es candidato para alineadores, te lo decimos honestamente y te orientamos hacia la mejor alternativa.</p>
+            </div>
+          </div>
+          <div class="mision__value">
+            <div class="mision__value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <div class="mision__value-copy">
+              <h4>Formación continua</h4>
+              <p>Todo el equipo participa en congresos internacionales y certificaciones anuales para mantenerse a la vanguardia del sector.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 5.2 EQUIPO PROFESIONAL ───────────────────────────────── -->
+  <section class="equipo" id="equipo">
+    <div class="container">
+      <p class="section-eyebrow">EQUIPO PROFESIONAL</p>
+      <h2 class="section-title">Los especialistas<br />detrás de tu sonrisa</h2>
+      <p class="section-subtitle">Cada profesional fue elegido no solo por su formación, sino por su forma de tratar a las personas.</p>
+
+      <div class="equipo__grid">
+
+        <!-- 1 · Dra. María Celeste Viale -->
+        <div class="doctor-card">
+          <div class="doctor-card__photo">
+            <img src="images/esp-celeste-viale.webp" alt="Dra. María Celeste Viale"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="doctor-card__photo-placeholder" style="display:none">
+              <div class="doctor-card__initials">MCV</div>
+            </div>
+            <span class="doctor-card__specialty-badge">DIRECTORA · ORTODONCIA</span>
+          </div>
+          <div class="doctor-card__body">
+            <h3 class="doctor-card__name">Dra. María Celeste Viale</h3>
+            <p class="doctor-card__role">Directora · Ortodoncista</p>
+            <p class="doctor-card__desc">Directora del centro. Lidera cada plan de tratamiento con alineadores combinando experiencia clínica y un enfoque personalizado. Su compromiso con la formación continua garantiza resultados predecibles y de excelencia.</p>
+            <div class="doctor-card__meta">
+              <div class="doctor-card__meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                Odontóloga UBA · Especialización en Ortodoncia y Ortopedia Funcional de los Maxilares, Círculo Argentino de Odontología
+              </div>
+              <div class="doctor-card__meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                Certificada en alineadores invisibles
+              </div>
+            </div>
+            <a href="#" class="doctor-card__cta">Ver perfil completo →</a>
+          </div>
+        </div>
+
+        <!-- 2 · Dr. Lucas Labanca -->
+        <div class="doctor-card">
+          <div class="doctor-card__photo">
+            <img src="images/esp-lucas-labanca.webp" alt="Dr. Lucas Labanca"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="doctor-card__photo-placeholder" style="display:none">
+              <div class="doctor-card__initials">LL</div>
+            </div>
+            <span class="doctor-card__specialty-badge">IMPLANTES · PRÓTESIS</span>
+          </div>
+          <div class="doctor-card__body">
+            <h3 class="doctor-card__name">Dr. Lucas Labanca</h3>
+            <p class="doctor-card__role">Implantes y Prótesis</p>
+            <p class="doctor-card__desc">Especialista en devolver funcionalidad y estética mediante implantes y rehabilitaciones protéticas. Su precisión técnica y calidez en el trato generan confianza desde la primera consulta.</p>
+            <div class="doctor-card__meta">
+              <div class="doctor-card__meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                Odontólogo · Especialización en Implantología y Prótesis
+              </div>
+              <div class="doctor-card__meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                Formación continua en rehabilitación implanto-protética
+              </div>
+            </div>
+            <a href="#" class="doctor-card__cta">Ver perfil completo →</a>
+          </div>
+        </div>
+
+        <!-- 3 · Dra. Eliana Fuentes -->
+        <div class="doctor-card">
+          <div class="doctor-card__photo">
+            <img src="images/esp-eliana-fuentes.webp" alt="Dra. Eliana Fuentes"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="doctor-card__photo-placeholder" style="display:none">
+              <div class="doctor-card__initials">EF</div>
+            </div>
+            <span class="doctor-card__specialty-badge">GENERAL · ESTÉTICA</span>
+          </div>
+          <div class="doctor-card__body">
+            <h3 class="doctor-card__name">Dra. Eliana Fuentes</h3>
+            <p class="doctor-card__role">Odontología General · Prótesis · Estética</p>
+            <p class="doctor-card__desc">Combina odontología restauradora con estética dental para lograr sonrisas naturales y funcionales. Acompaña a cada paciente con un abordaje integral, desde la prevención hasta la rehabilitación.</p>
+            <div class="doctor-card__meta">
+              <div class="doctor-card__meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                Odontóloga · Formación en estética dental y prótesis
+              </div>
+              <div class="doctor-card__meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                Capacitación en estética con resinas y rehabilitación oral
+              </div>
+            </div>
+            <a href="#" class="doctor-card__cta">Ver perfil completo →</a>
+          </div>
+        </div>
+
+        <!-- 4 · Dra. Juliana Estrugo -->
+        <div class="doctor-card">
+          <div class="doctor-card__photo">
+            <img src="images/esp-juliana-estrugo.webp" alt="Dra. Juliana Estrugo"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="doctor-card__photo-placeholder" style="display:none">
+              <div class="doctor-card__initials">JE</div>
+            </div>
+            <span class="doctor-card__specialty-badge">PERIODONCIA</span>
+          </div>
+          <div class="doctor-card__body">
+            <h3 class="doctor-card__name">Dra. Juliana Estrugo</h3>
+            <p class="doctor-card__role">Periodoncista</p>
+            <p class="doctor-card__desc">Especialista en salud de las encías y tejidos de soporte. Su rol es fundamental antes, durante y después de los tratamientos con alineadores, asegurando que la base periodontal esté siempre en óptimas condiciones.</p>
+            <div class="doctor-card__meta">
+              <div class="doctor-card__meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                Odontóloga UBA · Especialización en Periodoncia
+              </div>
+              <div class="doctor-card__meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                Especialista en periodoncia clínica
+              </div>
+            </div>
+            <a href="#" class="doctor-card__cta">Ver perfil completo →</a>
+          </div>
+        </div>
+
+        <!-- 5 · Dr. Fernando Pacheco -->
+        <div class="doctor-card">
+          <div class="doctor-card__photo">
+            <img src="images/esp-fernando-pacheco.webp" alt="Dr. Fernando Pacheco"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="doctor-card__photo-placeholder" style="display:none">
+              <div class="doctor-card__initials">FP</div>
+            </div>
+            <span class="doctor-card__specialty-badge">CIRUGÍA · IMPLANTES</span>
+          </div>
+          <div class="doctor-card__body">
+            <h3 class="doctor-card__name">Dr. Fernando Pacheco</h3>
+            <p class="doctor-card__role">Cirujano · Implantólogo</p>
+            <p class="doctor-card__desc">Resuelve los casos quirúrgicos más complejos con precisión y seguridad. Desde extracciones de terceros molares hasta cirugías reconstructivas e implantes, aporta la solidez quirúrgica al equipo.</p>
+            <div class="doctor-card__meta">
+              <div class="doctor-card__meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                Odontólogo, Universidad Nacional de Tucumán · Especialista en Cirugía y Traumatología Bucomaxilofacial
+              </div>
+              <div class="doctor-card__meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                Cirujano Bucomaxilofacial · Referente NTI Implantes
+              </div>
+            </div>
+            <a href="#" class="doctor-card__cta">Ver perfil completo →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 5.3 RECORRIDO VIRTUAL ────────────────────────────────── -->
+  <section class="recorrido" id="clinica">
+    <div class="container">
+      <p class="section-eyebrow" style="text-align:center">NUESTRA CLÍNICA</p>
+      <h2 class="section-title" style="text-align:center">Conocé el espacio<br />antes de visitarnos</h2>
+      <p class="section-subtitle">Un ambiente diseñado para que te sientas cómodo desde el primer momento. Tecnología de última generación en un espacio cálido y accesible.</p>
+
+      <!-- Galería de fotos – 10 imágenes: 2 anchas + 4 + 4 -->
+      <div class="recorrido__gallery">
+        <!-- Fila 1: 2 anchas -->
+        <div class="recorrido__photo" data-caption="Recepción">
+          <img src="images/espacio-recepcion.webp" alt="Recepción Smart Smile" />
+          <span class="recorrido__photo-label">Recepción</span>
+        </div>
+        <div class="recorrido__photo" data-caption="Ingreso · Hall">
+          <img src="images/espacio-ingreso-hall.webp" alt="Ingreso y hall" />
+          <span class="recorrido__photo-label">Ingreso · Hall</span>
+        </div>
+        <!-- Fila 2: 4 cuadradas -->
+        <div class="recorrido__photo" data-caption="Consultorio 1">
+          <img src="images/espacio-consultorio1.webp" alt="Consultorio 1" />
+          <span class="recorrido__photo-label">Consultorio 1</span>
+        </div>
+        <div class="recorrido__photo" data-caption="Consultorio 2">
+          <img src="images/espacio-consultorio2.webp" alt="Consultorio 2" />
+          <span class="recorrido__photo-label">Consultorio 2</span>
+        </div>
+        <div class="recorrido__photo" data-caption="Consultorio 3">
+          <img src="images/espacio-consultorio3.webp" alt="Consultorio 3" />
+          <span class="recorrido__photo-label">Consultorio 3</span>
+        </div>
+        <div class="recorrido__photo" data-caption="Impresora 3D">
+          <img src="images/espacio-maquina-3d.webp" alt="Impresora 3D" />
+          <span class="recorrido__photo-label">Impresora 3D</span>
+        </div>
+        <!-- Fila 3: 4 cuadradas -->
+        <div class="recorrido__photo" data-caption="Sala de espera">
+          <img src="images/espacio-sala-espera.webp" alt="Sala de espera" />
+          <span class="recorrido__photo-label">Sala de espera</span>
+        </div>
+        <div class="recorrido__photo" data-caption="Sala 3D">
+          <img src="images/espacio-sala-3d.webp" alt="Sala 3D" />
+          <span class="recorrido__photo-label">Sala 3D</span>
+        </div>
+        <div class="recorrido__photo" data-caption="Coordinación">
+          <img src="images/espacio-oficina.webp" alt="Oficina de coordinación" />
+          <span class="recorrido__photo-label">Coordinación</span>
+        </div>
+        <div class="recorrido__photo" data-caption="Sala whitening">
+          <img src="images/espacio-sala-whitening.webp" alt="Sala de blanqueamiento" />
+          <span class="recorrido__photo-label">Sala whitening</span>
+        </div>
+      </div>
+
+      <!-- Tour 360 + Video -->
+      <div class="recorrido__immersive">
+
+        <!-- Tour 360 -->
+        <div class="recorrido__embed">
+          <div class="recorrido__embed-bg"></div>
+          <div class="recorrido__embed-content">
+            <div class="recorrido__embed-icon">
+              <!-- 360 icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a14.5 14.5 0 010 20M2 12h20"/>
+                <path d="M12 2C6.48 2 2 6.48 2 12"/>
+              </svg>
+            </div>
+            <p class="recorrido__embed-title">Tour Virtual 360°</p>
+            <p class="recorrido__embed-sub">Recorrido interactivo por todas las instalaciones.<br/>Explorá cada espacio desde donde estés.</p>
+            <span class="recorrido__embed-badge">Próximamente disponible</span>
+          </div>
+        </div>
+
+        <!-- Video -->
+        <div class="recorrido__embed">
+          <div class="recorrido__embed-bg" style="background: linear-gradient(135deg, #1a0f28 0%, #3d1a2e 100%);"></div>
+          <div class="recorrido__embed-content">
+            <div class="recorrido__embed-icon">
+              <!-- Play icon -->
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </div>
+            <p class="recorrido__embed-title">Video institucional</p>
+            <p class="recorrido__embed-sub">Conocé el equipo, el espacio y la filosofía de Smart Smile en un recorrido de 2 minutos.</p>
+            <span class="recorrido__embed-badge">Subir video aquí</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ──────────────────────────────────────────────────── -->
+  <section class="esp-cta">
+    <div class="container">
+      <p class="section-eyebrow light">PRIMERA VISITA GRATUITA</p>
+      <h2 class="section-title light">¿Listo para conocernos<br />en persona?</h2>
+      <p class="section-subtitle light">La primera consulta es completamente gratuita. Evaluación clínica, escaneo 3D y simulación de tu sonrisa incluidos.</p>
+      <div class="esp-cta__actions">
+        <a href="index.html#reserva" class="btn btn--white-solid btn--lg">Agendá tu consulta gratuita</a>
+        <a href="https://wa.me/5491127553902" target="_blank" class="btn btn--outline-white btn--lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribinos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <img src="logo.svg" alt="Smart Smile" class="footer__logo" />
+        <p class="footer__copy">&copy; 2025 Smart Smile. Todos los derechos reservados.</p>
+        <div class="footer__links">
+          <a href="#">Política de privacidad</a>
+          <a href="#">Términos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── LIGHTBOX ───────────────────────────────────────────── -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Cerrar">&#10005;</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <div class="lightbox__img-wrap">
+      <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+      <span class="lightbox__caption" id="lightboxCaption"></span>
+    </div>
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+  /* ── GALLERY LIGHTBOX ───────────────────────────────────────── */
+  (function () {
+    const lb        = document.getElementById('lightbox');
+    const lbImg     = document.getElementById('lightboxImg');
+    const lbCaption = document.getElementById('lightboxCaption');
+    const lbClose   = document.getElementById('lightboxClose');
+    const lbPrev    = document.getElementById('lightboxPrev');
+    const lbNext    = document.getElementById('lightboxNext');
+    if (!lb) return;
+
+    const photos = Array.from(document.querySelectorAll('.recorrido__photo'));
+    let current = 0;
+
+    function open(index) {
+      current = (index + photos.length) % photos.length;
+      const photo = photos[current];
+      const img   = photo.querySelector('img');
+      lbImg.src         = img ? img.src : '';
+      lbImg.alt         = img ? img.alt : '';
+      lbCaption.textContent = photo.dataset.caption || '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    photos.forEach((photo, i) => {
+      photo.addEventListener('click', () => open(i));
+    });
+
+    lbClose.addEventListener('click', close);
+    lbPrev.addEventListener('click', (e) => { e.stopPropagation(); open(current - 1); });
+    lbNext.addEventListener('click', (e) => { e.stopPropagation(); open(current + 1); });
+
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape')     close();
+      if (e.key === 'ArrowLeft')  open(current - 1);
+      if (e.key === 'ArrowRight') open(current + 1);
+    });
+  })();
+  </script>
+</body>
+</html>

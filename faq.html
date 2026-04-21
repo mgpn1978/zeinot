@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preguntas Frecuentes – Smart Smile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── PAGE-SPECIFIC: FAQ hero header ── */
+    .faq-hero {
+      background: var(--gradient);
+      padding: 160px 0 80px;
+      text-align: center;
+    }
+    .faq-hero .section-eyebrow.light { margin-bottom: 16px; }
+    .faq-hero__title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .faq-hero__sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,.75);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .faq-hero__cats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .faq-hero__cat {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .faq-hero__cat:hover {
+      background: rgba(255,255,255,.22);
+      border-color: rgba(255,255,255,.5);
+    }
+
+    /* ── FAQ page layout ── */
+    .faq-page {
+      padding: 80px 0 100px;
+      background: #fff;
+    }
+    .faq-page .container { max-width: 860px; }
+
+    /* ── Category sticky label ── */
+    .faq__category + .faq__category { margin-top: 56px; }
+
+    /* ── CTA inline ── */
+    .faq-cta {
+      margin-top: 72px;
+      background: #fafafa;
+      border-radius: 20px;
+      padding: 52px 48px;
+      text-align: center;
+    }
+    .faq-cta__title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+    .faq-cta__sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    .faq-cta__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Navbar active link ── */
+    .navbar__nav a.active { color: var(--pink); }
+
+    @media (max-width: 600px) {
+      .faq-hero { padding: 140px 0 60px; }
+      .faq-cta { padding: 40px 24px; }
+      .faq-cta__title { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVBAR ──────────────────────────────────────────────── -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo navbar__logo--full">
+        <img src="logo.svg" alt="Smart Smile" />
+      </a>
+      <a href="index.html" class="navbar__logo navbar__logo--icon">
+        <img src="logo-icon.svg" alt="Smart Smile" />
+      </a>
+      <nav class="navbar__nav">
+        <a href="alineadores.html">Alineadores</a>
+        <a href="tratamientos.html">Tratamientos</a>
+        <a href="resultados.html">Resultados</a>
+        <a href="index.html#especialistas">Especialistas</a>
+        <a href="faq.html" class="active">FAQ</a>
+      </nav>
+      <div class="navbar__actions">
+        <a href="https://wa.me/5491127553902" target="_blank" class="navbar__phone">
+          <svg class="navbar__wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          11 2755 3902
+        </a>
+        <a href="index.html#reserva" class="btn btn--nav-cta">Agendá tu turno</a>
+        <a href="#" class="navbar__lang">EN</a>
+        <button class="navbar__hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="navbar__mobile-menu" id="mobileMenu">
+      <a href="alineadores.html">Alineadores</a>
+      <a href="tratamientos.html">Tratamientos</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="index.html#especialistas">Especialistas</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#reserva" class="btn btn--gradient">Agendá tu turno</a>
+    </div>
+  </header>
+
+  <!-- ─── FAQ HERO ─────────────────────────────────────────────── -->
+  <section class="faq-hero">
+    <div class="container">
+      <p class="section-eyebrow light">PREGUNTAS FRECUENTES</p>
+      <h1 class="faq-hero__title">Todo lo que necesitás saber<br />sobre los alineadores invisibles</h1>
+      <p class="faq-hero__sub">Respondemos las dudas más comunes de nuestros pacientes de forma clara, honesta y sin tecnicismos.</p>
+      <div class="faq-hero__cats">
+        <a href="#cat-alineadores" class="faq-hero__cat">Sobre los alineadores</a>
+        <a href="#cat-tratamiento" class="faq-hero__cat">Sobre el tratamiento</a>
+        <a href="#cat-centro" class="faq-hero__cat">Centro y atención</a>
+        <a href="#cat-especiales" class="faq-hero__cat">Casos especiales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ CONTENT ──────────────────────────────────────────── -->
+  <section class="faq-page">
+    <div class="container">
+      <div class="faq__body">
+
+        <!-- 01 – Sobre los alineadores invisibles -->
+        <div class="faq__category" id="cat-alineadores">
+          <h2 class="faq__cat-title"><span class="faq__cat-num">01</span>Sobre los alineadores invisibles</h2>
+          <div class="faq__items">
+            <div class="faq__item">
+              <button class="faq__question">¿Qué son exactamente los alineadores invisibles?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Los alineadores invisibles son férulas transparentes y removibles, fabricadas a medida para tu boca, que se colocan sobre los dientes para corregir su posición de manera progresiva. A diferencia de los brackets tradicionales, no llevan alambres ni piezas metálicas. Cada juego de alineadores se diseña digitalmente para producir movimientos específicos, y se cambia aproximadamente cada dos semanas para llevar tus dientes a la posición planificada.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Realmente son invisibles?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Son prácticamente imperceptibles. Están fabricados con un plástico transparente de alta calidad que se adapta perfectamente a la forma de tus dientes. A distancias normales de conversación, casi nadie nota que los llevás puestos. Es una de las razones por las que se han convertido en la opción favorita de profesionales, adultos y adolescentes que buscan una solución estética y discreta.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Los alineadores duelen?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>No producen dolor como tal. Es normal sentir una leve presión o molestia durante los primeros uno o dos días después de cambiar a un nuevo alineador, lo cual es señal de que tus dientes se están moviendo. Esta sensación desaparece rápidamente y, a diferencia de los brackets tradicionales, no causan llagas, irritaciones ni pinchazos en las mejillas o la lengua.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Voy a hablar diferente con los alineadores puestos?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Durante los primeros 3 a 5 días podés notar una leve dificultad al pronunciar algunas palabras, especialmente las que llevan los sonidos "s" y "t". Esto es completamente normal mientras tu lengua se adapta a la presencia del alineador. La adaptación es rápida y, después de la primera semana, hablarás con total naturalidad.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Puedo comer con los alineadores puestos?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>No. Los alineadores deben retirarse para comer y para beber cualquier líquido que no sea agua (especialmente bebidas calientes, con colorantes o azucaradas). Esto es en realidad una ventaja: podés seguir comiendo todo lo que quieras sin restricciones, algo imposible con los brackets tradicionales. Después de comer, laváte los dientes y volvé a colocar los alineadores.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Cuántas horas al día tengo que usarlos?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Lo ideal es entre 20 y 22 horas al día. Solo se retiran para comer, beber, cepillarse los dientes y, ocasionalmente, para algún evento muy específico. Cumplir con este tiempo de uso es fundamental para que el tratamiento funcione en el plazo previsto. Si los usás menos horas, el tratamiento se prolonga y los movimientos pueden no completarse correctamente.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Qué pasa si pierdo un alineador?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Lo primero es contactarnos lo antes posible. Según en qué etapa del tratamiento estés, podemos indicarte que continúes con el siguiente alineador en la secuencia, que vuelvas al alineador anterior por unos días, o fabricarte uno de reemplazo. Por eso es muy importante guardarlos siempre en su estuche cuando no los uses, nunca envueltos en una servilleta.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Cómo se limpian los alineadores?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Su limpieza es muy simple. Cepillalos suavemente dos veces al día con un cepillo de cerdas blandas y agua tibia (no caliente, porque puede deformarlos). Podés usar jabón neutro o pastillas limpiadoras específicas para alineadores. Nunca uses pasta dental común porque sus partículas abrasivas pueden rayarlos y opacar su transparencia.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Los alineadores funcionan para todos los casos?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Funcionan para la gran mayoría de los casos: apiñamiento, espacios entre dientes, mordida cruzada, sobremordida, mordida abierta, recidivas de tratamientos previos y muchos otros problemas de alineación. Sin embargo, hay casos muy complejos donde es necesario combinar alineadores con otros tratamientos o evaluar alternativas. En tu consulta gratuita evaluamos tu caso específico y te decimos honestamente si sos candidato.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 – Sobre el tratamiento -->
+        <div class="faq__category" id="cat-tratamiento">
+          <h2 class="faq__cat-title"><span class="faq__cat-num">02</span>Sobre el tratamiento</h2>
+          <div class="faq__items">
+            <div class="faq__item">
+              <button class="faq__question">¿Cuánto dura el tratamiento?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>La duración depende de la complejidad de cada caso. Como referencia: los casos leves se resuelven entre 3 y 6 meses, los casos moderados entre 8 y 14 meses, y los casos más complejos pueden requerir entre 14 y 24 meses. En tu consulta inicial gratuita, después del escaneo 3D, podemos darte una estimación bastante precisa del tiempo que llevará tu tratamiento específico.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Cuándo voy a ver los primeros resultados?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Los primeros cambios suelen notarse entre las 4 y 6 semanas de iniciado el tratamiento. Aunque son sutiles al principio, la mayoría de los pacientes empiezan a ver mejoras notables a partir del tercer mes. Vas a tener una galería personal con fotos de seguimiento para que puedas comparar tu progreso a lo largo del tiempo.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Cómo es la primera consulta?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>La primera consulta es gratuita, sin compromiso, y dura aproximadamente 45 minutos. Incluye una evaluación clínica completa de tu boca, un escaneo intraoral 3D (sin moldes incómodos) y, en muchos casos, una simulación digital de cómo quedaría tu sonrisa al finalizar el tratamiento. Al final de la consulta te entregamos un plan de tratamiento personalizado con tiempos y precio cerrado.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Necesito venir a controles? ¿Con qué frecuencia?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Sí, los controles son fundamentales. Durante el tratamiento vas a venir a la clínica una vez por mes para que el especialista evalúe el avance, te entregue los siguientes alineadores y haga los ajustes necesarios. Las visitas son cortas (entre 15 y 30 minutos) y no son dolorosas. Este seguimiento presencial es lo que diferencia un tratamiento profesional de las opciones "a distancia" que han demostrado problemas graves en el mercado.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Qué son los attachments y siempre se usan?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Los attachments son pequeños relieves de composite del color del diente que se colocan en algunas piezas para ayudar al alineador a producir movimientos más complejos. No todos los pacientes los necesitan, depende del tipo de movimientos que requiera tu tratamiento. Son prácticamente invisibles, no duelen y se retiran al finalizar el tratamiento sin dejar marcas.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Qué pasa después de terminar el tratamiento?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Una vez que tus dientes están en la posición correcta, comienza la fase de retención, que es fundamental para evitar que vuelvan a moverse. Te entregamos un retenedor (puede ser fijo, removible o una combinación de ambos) que deberás usar siguiendo nuestras indicaciones. La retención es para toda la vida, aunque el tiempo de uso diario se reduce con el paso del tiempo. Sin retención, los dientes tienden a volver a su posición original.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Hay alguna restricción durante el tratamiento?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Las restricciones son mínimas y se relacionan principalmente con la disciplina de uso. Tenés que comprometerte a usar los alineadores entre 20 y 22 horas diarias, mantener una buena higiene bucal y asistir a tus controles mensuales. No hay restricciones de comida, deportes ni actividades sociales. De hecho, podés practicar deportes con más comodidad que con brackets, ya que no hay piezas que puedan lastimarte.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Puedo fumar con los alineadores?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Técnicamente sí, pero no es recomendable. El humo y el alquitrán del tabaco manchan los alineadores y los vuelven amarillentos y opacos, perdiendo su característica de invisibilidad. Lo ideal es retirarlos antes de fumar. Aprovechamos para mencionarte que el tratamiento es una excelente oportunidad para reducir o dejar el hábito, lo cual también beneficia tu salud bucal general.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 – Sobre el centro y la atención -->
+        <div class="faq__category" id="cat-centro">
+          <h2 class="faq__cat-title"><span class="faq__cat-num">03</span>Sobre el centro y la atención</h2>
+          <div class="faq__items">
+            <div class="faq__item">
+              <button class="faq__question">¿Dónde están ubicados?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Nuestro centro está ubicado en Av. Libertador 5990, Belgrano, CABA, en una zona de fácil acceso tanto en transporte público como en auto. Contamos con estacionamiento disponible para nuestros pacientes. En el sitio podés encontrar el mapa interactivo con indicaciones detalladas para llegar.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Cuál es el horario de atención?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Atendemos de lunes a viernes de 9:00 a 19:00 horas. Eventualmente abrimos los sábados por la mañana para casos especiales o controles, con turno previamente coordinado. Tratamos de ofrecer franjas horarias flexibles para que puedas adaptar tus controles a tu rutina laboral o de estudio.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Cómo agendo una consulta?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Tenés tres formas de agendar tu consulta gratuita: a través del formulario de contacto en el sitio, por WhatsApp directo (te respondemos en pocas horas en horario laboral), o llamando por teléfono. Te confirmamos día y horario en menos de 24 horas hábiles y te enviamos un recordatorio el día previo.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Cuánto tarda la respuesta cuando contacto al centro?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Nos comprometemos a responder todas las consultas en menos de 24 horas hábiles. Por WhatsApp solemos responder en pocas horas dentro del horario de atención. Si nos contactás por mail o el formulario web, también te respondemos rápido por el medio que prefieras.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Quiénes integran el equipo profesional?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Nuestro equipo está formado por especialistas en ortodoncia, odontología estética, implantología y odontopediatría. Todos cuentan con formación específica en alineadores invisibles, certificaciones internacionales y se mantienen actualizados con los últimos avances. En la sección "Especialistas" del sitio podés conocer el perfil completo de cada profesional.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Tienen estacionamiento?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Sí, contamos con estacionamiento disponible para nuestros pacientes. Además, la zona donde estamos ubicados tiene buena disponibilidad de estacionamiento en la calle y opciones de cocheras cercanas. Si venís en transporte público, hay varias líneas de colectivo que paran a pocas cuadras.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Es accesible para personas con movilidad reducida?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Sí. Nuestras instalaciones están adaptadas para personas con movilidad reducida, con acceso a nivel sin escaleras, ascensor y baños accesibles. Si tenés alguna necesidad específica, comunicánosla previamente para que podamos prepararnos para recibirte de la mejor manera.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 – Casos especiales -->
+        <div class="faq__category" id="cat-especiales">
+          <h2 class="faq__cat-title"><span class="faq__cat-num">04</span>Casos especiales</h2>
+          <div class="faq__items">
+            <div class="faq__item">
+              <button class="faq__question">¿Los alineadores funcionan en adolescentes?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Sí, son una excelente opción para adolescentes a partir de los 12 años, una vez que tienen dentición permanente. De hecho, son especialmente populares en este grupo porque les permiten alinear sus dientes sin sentirse cohibidos por el aspecto de los brackets metálicos. El éxito del tratamiento depende del compromiso del adolescente con las horas de uso, por lo que en la consulta evaluamos esta variable junto a los padres.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Hay edad máxima para usar alineadores?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>No hay edad máxima. Tenemos pacientes de todas las edades, incluyendo personas mayores de 60 y 70 años que han logrado resultados excelentes. En adultos mayores adaptamos las fuerzas y los tiempos del tratamiento considerando aspectos como la salud de las encías, la presencia de implantes, prótesis o tratamientos previos. Nunca es tarde para alinear tu sonrisa.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Funcionan si tengo implantes, coronas o carillas?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Sí, los alineadores son compatibles con implantes, coronas y carillas. Los implantes no se mueven (porque están integrados al hueso), pero los demás dientes sí pueden alinearse a su alrededor. En el caso de coronas y carillas, los movimientos son posibles aunque la adherencia de los attachments puede ser menor que en dientes naturales. En la planificación se contemplan estos aspectos para garantizar un resultado óptimo.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Sirven si ya hice ortodoncia antes y se me movieron los dientes?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Es uno de los casos más frecuentes en nuestra clínica. Las recidivas (dientes que vuelven a moverse después de un tratamiento previo) son muy comunes, generalmente por falta de uso del retenedor. Los alineadores son ideales para estos casos: como suelen ser correcciones menores, los tratamientos son cortos (3 a 6 meses) y muy efectivos.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Puedo usar alineadores si tengo problemas de encías?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Antes de iniciar cualquier tratamiento de ortodoncia es necesario tener la salud periodontal estabilizada. Si tenés gingivitis, periodontitis o cualquier inflamación, primero debemos tratar esa condición. Una vez que las encías están sanas, los alineadores son incluso más recomendables que los brackets, porque permiten una mejor higiene durante el tratamiento.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Sirven para corregir el bruxismo?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Los alineadores no son un tratamiento para el bruxismo en sí (ese rol lo cumplen las placas de descarga), pero pueden ayudar a corregir problemas de mordida que muchas veces están relacionados. Si tenés bruxismo, en la consulta evaluamos tu caso integralmente. En algunos casos los alineadores actúan como una protección parcial durante el tratamiento, y al finalizar se diseña un retenedor que también funciona como placa nocturna.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Puedo iniciar un tratamiento si estoy embarazada?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Sí, los alineadores son seguros durante el embarazo. No requieren rayos X frecuentes (el escaneo 3D no usa radiación) ni medicamentos. Si estás embarazada y querés iniciar el tratamiento, solo te pedimos que nos lo informes para coordinar los controles considerando tu situación. Muchas pacientes aprovechan el embarazo para iniciar su tratamiento y lucir su nueva sonrisa cuando reciben al bebé.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__question">¿Funcionan en casos de extracciones dentales?<span class="faq__icon"></span></button>
+              <div class="faq__answer"><p>Sí, los alineadores pueden cerrar espacios producidos por extracciones dentales (por ejemplo, por una muela del juicio que afectó otras piezas o por dientes que tuvieron que ser removidos). Estos casos requieren una planificación más cuidadosa y suelen necesitar más tiempo, pero los resultados son excelentes. En la consulta evaluamos si tu caso específico es candidato.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA inline -->
+        <div class="faq-cta">
+          <p class="faq-cta__title">¿No encontraste lo que buscabas?</p>
+          <p class="faq-cta__sub">Agendá una consulta gratuita y nuestros especialistas responden todas tus dudas en persona, con un diagnóstico personalizado incluido.</p>
+          <div class="faq-cta__actions">
+            <a href="index.html#reserva" class="btn btn--gradient btn--lg">Agendá tu consulta gratuita</a>
+            <a href="https://wa.me/5491127553902" target="_blank" class="btn btn--outline-dark btn--lg">Escribinos por WhatsApp</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <img src="logo.svg" alt="Smart Smile" class="footer__logo" />
+        <p class="footer__copy">&copy; 2025 Smart Smile. Todos los derechos reservados.</p>
+        <div class="footer__links">
+          <a href="#">Política de privacidad</a>
+          <a href="#">Términos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

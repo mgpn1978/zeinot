@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alineadores Invisibles – Smart Smile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ════════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════════ */
+    .alin-hero {
+      position: relative;
+      padding: 160px 0 100px;
+      text-align: center;
+      background: var(--gradient);
+      overflow: hidden;
+    }
+    .alin-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(255,255,255,.06) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 80% 70%, rgba(255,255,255,.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .alin-hero__eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 24px;
+    }
+    .alin-hero__title {
+      font-size: clamp(38px, 5.5vw, 62px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .alin-hero__sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,.7);
+      max-width: 560px;
+      margin: 0 auto 52px;
+      line-height: 1.8;
+    }
+    .alin-hero__pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .alin-hero__pill {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 100px;
+      padding: 9px 22px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,.9);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+    .alin-hero__pill:hover {
+      background: rgba(255,255,255,.2);
+      border-color: rgba(255,255,255,.5);
+      box-shadow: 0 4px 20px rgba(0,0,0,.15);
+    }
+
+    /* ════════════════════════════════════════════════
+       1 — ¿QUÉ SON?
+    ════════════════════════════════════════════════ */
+    .que-son {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .que-son__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .que-son__text .section-eyebrow { text-align: left; margin-bottom: 16px; }
+    .que-son__text .section-title   { text-align: left; margin-bottom: 24px; }
+    .que-son__body {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.85;
+    }
+
+    /* Tabla comparativa */
+    .compare-table {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,.08);
+      background: var(--white);
+      box-shadow: 0 4px 24px rgba(69,47,103,.07);
+    }
+    .compare-table__header {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+    }
+    .compare-table__header-cell {
+      padding: 16px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .compare-table__header-cell:first-child {
+      background: #f5f5f5;
+      color: #999;
+    }
+    .compare-table__header-cell.alin {
+      background: var(--gradient);
+      color: var(--white);
+      text-align: center;
+    }
+    .compare-table__header-cell.brack {
+      background: #737679;
+      color: rgba(255,255,255,.8);
+      text-align: center;
+    }
+    .compare-table__row {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      border-top: 1px solid rgba(0,0,0,.06);
+    }
+    .compare-table__row:nth-child(even) .compare-table__cell:first-child {
+      background: #fbfbfb;
+    }
+    .compare-table__cell {
+      padding: 14px 18px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .compare-table__cell:first-child {
+      font-weight: 600;
+      color: #333;
+    }
+    .compare-table__cell.alin-val {
+      background: rgba(194,14,97,.04);
+      color: var(--purple);
+      font-weight: 500;
+      font-size: 12px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .compare-table__cell.brack-val {
+      background: rgba(115,118,121,.05);
+      color: var(--gray);
+      font-size: 12px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ════════════════════════════════════════════════
+       2 — VENTAJAS
+    ════════════════════════════════════════════════ */
+    .ventajas {
+      padding: 100px 0;
+      background: #fafafa;
+    }
+    .ventajas .container { text-align: center; }
+    .ventajas .section-subtitle { margin: 0 auto 64px; }
+
+    .ventajas__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: left;
+    }
+    .ventaja-card {
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,.06);
+      padding: 32px 28px;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .ventaja-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(69,47,103,.1);
+    }
+    .ventaja-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(69,47,103,.08) 0%, rgba(194,14,97,.08) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .ventaja-card__icon svg { width: 24px; height: 24px; }
+    .ventaja-card__title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+    .ventaja-card__desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+    /* ════════════════════════════════════════════════
+       3 — PROCESO / TIMELINE
+    ════════════════════════════════════════════════ */
+    .proceso {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .proceso .container { text-align: center; }
+    .proceso .section-subtitle { margin: 0 auto 72px; }
+
+    .timeline {
+      position: relative;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, rgba(194,14,97,.15) 0%, rgba(194,14,97,.5) 30%, rgba(69,47,103,.5) 70%, rgba(69,47,103,.15) 100%);
+    }
+
+    .timeline__item {
+      display: grid;
+      grid-template-columns: 1fr 64px 1fr;
+      gap: 0;
+      align-items: start;
+      margin-bottom: 48px;
+      position: relative;
+    }
+    .timeline__item:last-child { margin-bottom: 0; }
+
+    /* Items impares: texto izquierda, vacío derecha */
+    .timeline__item:nth-child(odd) .timeline__content {
+      grid-column: 1;
+      grid-row: 1;
+      text-align: right;
+      padding-right: 40px;
+    }
+    .timeline__item:nth-child(odd) .timeline__number {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .timeline__item:nth-child(odd) .timeline__spacer {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    /* Items pares: vacío izquierda, texto derecha */
+    .timeline__item:nth-child(even) .timeline__spacer {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .timeline__item:nth-child(even) .timeline__number {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .timeline__item:nth-child(even) .timeline__content {
+      grid-column: 3;
+      grid-row: 1;
+      text-align: left;
+      padding-left: 40px;
+    }
+
+    .timeline__number {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 4px;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline__num-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--white);
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(194,14,97,.3);
+    }
+
+    .timeline__content {
+      padding-top: 8px;
+    }
+    .timeline__step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+    .timeline__step-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+    .timeline__spacer { /* empty column placeholder */ }
+
+    /* ════════════════════════════════════════════════
+       4 — CTA SIMULACIÓN
+    ════════════════════════════════════════════════ */
+    .cta-sim {
+      padding: 80px 0;
+      background: var(--gradient);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-sim::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 30% 50%, rgba(255,255,255,.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-sim .section-eyebrow.light { margin-bottom: 16px; }
+    .cta-sim__title {
+      font-size: clamp(30px, 4.5vw, 48px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .cta-sim__title strong { font-weight: 800; }
+    .cta-sim__sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,.75);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
+
+    /* ════════════════════════════════════════════════
+       5 — CASOS
+    ════════════════════════════════════════════════ */
+    .casos {
+      padding: 100px 0;
+      background: #fafafa;
+    }
+    .casos .container { text-align: center; }
+    .casos .section-subtitle { margin: 0 auto 64px; }
+
+    .casos__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: left;
+    }
+    .caso-card {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,.06);
+      padding: 28px 24px;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .caso-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(69,47,103,.09);
+    }
+    .caso-card__check {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+    .caso-card__check svg { width: 18px; height: 18px; }
+    .caso-card__title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+    .caso-card__desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* ════════════════════════════════════════════════
+       6 — TECNOLOGÍA
+    ════════════════════════════════════════════════ */
+    .tecnologia {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .tecnologia .container { text-align: center; }
+    .tecnologia .section-subtitle { margin: 0 auto 64px; }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      text-align: left;
+    }
+    .tech-card {
+      background: #fafafa;
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,.06);
+      padding: 32px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .tech-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(69,47,103,.08);
+    }
+    .tech-card__icon {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tech-card__icon svg { width: 26px; height: 26px; stroke: var(--white); }
+    .tech-card__body {}
+    .tech-card__title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+    .tech-card__desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+    /* ════════════════════════════════════════════════
+       7 — ¿PARA QUIÉN?
+    ════════════════════════════════════════════════ */
+    .para-quien {
+      padding: 100px 0;
+      background: #fafafa;
+    }
+    .para-quien .container { text-align: center; }
+    .para-quien .section-subtitle { margin: 0 auto 64px; }
+
+    .perfil-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: left;
+    }
+    /* 4th and 5th cards centered */
+    .perfil-grid .perfil-card:nth-child(4) {
+      grid-column: 1 / 2;
+      margin-left: calc(50% + 12px);
+    }
+    .perfil-grid .perfil-card:nth-child(5) {
+      grid-column: 2 / 3;
+    }
+    .perfil-card {
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,.06);
+      padding: 28px 24px;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .perfil-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(69,47,103,.09);
+    }
+    .perfil-card__num {
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+      opacity: .35;
+    }
+    .perfil-card__title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+    .perfil-card__desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* ════════════════════════════════════════════════
+       8 — CUIDADOS
+    ════════════════════════════════════════════════ */
+    .cuidados {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .cuidados .container { text-align: center; }
+    .cuidados .section-subtitle { margin: 0 auto 64px; }
+
+    .cuidados__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: left;
+    }
+    .cuidado-card {
+      background: #fafafa;
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,.06);
+      padding: 32px 28px;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .cuidado-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(69,47,103,.08);
+    }
+    .cuidado-card__num {
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+      opacity: .3;
+    }
+    .cuidado-card__title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+    .cuidado-card__desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+    /* ════════════════════════════════════════════════
+       CTA FINAL
+    ════════════════════════════════════════════════ */
+    .alin-cta {
+      padding: 100px 0;
+      background: var(--gradient);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .alin-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 70% 30%, rgba(255,255,255,.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .alin-cta .section-title.light  { margin-bottom: 16px; }
+    .alin-cta .section-subtitle.light { margin: 0 auto 40px; }
+    .alin-cta__actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .tech-grid { grid-template-columns: 1fr; }
+      .perfil-grid { grid-template-columns: repeat(2, 1fr); }
+      .perfil-grid .perfil-card:nth-child(4) { grid-column: auto; margin-left: 0; }
+      .perfil-grid .perfil-card:nth-child(5) { grid-column: auto; }
+    }
+    @media (max-width: 900px) {
+      .que-son__grid { grid-template-columns: 1fr; gap: 56px; }
+      .ventajas__grid { grid-template-columns: repeat(2, 1fr); }
+      .casos__grid { grid-template-columns: repeat(2, 1fr); }
+      .cuidados__grid { grid-template-columns: repeat(2, 1fr); }
+      .timeline::before { left: 28px; }
+      .timeline__item {
+        grid-template-columns: 56px 1fr;
+        gap: 0;
+      }
+      .timeline__item:nth-child(odd) .timeline__content,
+      .timeline__item:nth-child(even) .timeline__content {
+        grid-column: 2;
+        grid-row: 1;
+        text-align: left;
+        padding-right: 0;
+        padding-left: 24px;
+      }
+      .timeline__item:nth-child(odd) .timeline__number,
+      .timeline__item:nth-child(even) .timeline__number {
+        grid-column: 1;
+        grid-row: 1;
+        justify-content: flex-start;
+        padding-top: 8px;
+      }
+      .timeline__item:nth-child(odd) .timeline__spacer,
+      .timeline__item:nth-child(even) .timeline__spacer {
+        display: none;
+      }
+      .timeline::before { transform: none; }
+    }
+    @media (max-width: 680px) {
+      .alin-hero { padding: 130px 0 72px; }
+      .ventajas__grid { grid-template-columns: 1fr; }
+      .casos__grid { grid-template-columns: 1fr; }
+      .cuidados__grid { grid-template-columns: 1fr; }
+      .perfil-grid { grid-template-columns: 1fr; }
+      .que-son__grid { gap: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVBAR ──────────────────────────────────────────────── -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo navbar__logo--full">
+        <img src="logo.svg" alt="Smart Smile" />
+      </a>
+      <a href="index.html" class="navbar__logo navbar__logo--icon">
+        <img src="logo-icon.svg" alt="Smart Smile" />
+      </a>
+      <nav class="navbar__nav">
+        <a href="alineadores.html" class="active" style="color:var(--pink)">Alineadores</a>
+        <a href="tratamientos.html">Tratamientos</a>
+        <a href="resultados.html">Resultados</a>
+        <a href="especialistas.html">Especialistas</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <div class="navbar__actions">
+        <a href="https://wa.me/5491127553902" target="_blank" class="navbar__phone">
+          <svg class="navbar__wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          11 2755 3902
+        </a>
+        <a href="index.html#reserva" class="btn btn--nav-cta">Agendá tu turno</a>
+        <a href="#" class="navbar__lang">EN</a>
+        <button class="navbar__hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="navbar__mobile-menu" id="mobileMenu">
+      <a href="alineadores.html">Alineadores</a>
+      <a href="tratamientos.html">Tratamientos</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="especialistas.html">Especialistas</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#reserva" class="btn btn--gradient">Agendá tu turno</a>
+    </div>
+  </header>
+
+  <!-- ─── HERO ─────────────────────────────────────────────────── -->
+  <section class="alin-hero">
+    <div class="container">
+      <p class="alin-hero__eyebrow">SMART SMILE · ALINEADORES INVISIBLES</p>
+      <h1 class="alin-hero__title">La ortodoncia que nadie nota</h1>
+      <p class="alin-hero__sub">Transparentes, removibles y 100% personalizados. Resultados desde las primeras semanas sin que nadie lo note.</p>
+      <div class="alin-hero__pills">
+        <a href="#que-son"    class="alin-hero__pill">¿Qué son?</a>
+        <a href="#ventajas"   class="alin-hero__pill">Ventajas</a>
+        <a href="#proceso"    class="alin-hero__pill">Cómo funciona</a>
+        <a href="#casos"      class="alin-hero__pill">Casos</a>
+        <a href="#para-quien" class="alin-hero__pill">Para quién</a>
+        <a href="#tecnologia" class="alin-hero__pill">Tecnología</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 1. ¿QUÉ SON? ─────────────────────────────────────────── -->
+  <section class="que-son" id="que-son">
+    <div class="container">
+      <div class="que-son__grid">
+
+        <!-- Texto -->
+        <div class="que-son__text">
+          <p class="section-eyebrow">¿QUÉ SON?</p>
+          <h2 class="section-title">Férulas transparentes que transforman tu sonrisa</h2>
+          <p class="que-son__body">Los alineadores invisibles son férulas transparentes y removibles fabricadas a medida que se colocan sobre los dientes para corregir su posición de forma progresiva. A diferencia de la ortodoncia tradicional, no utilizan alambres ni brackets visibles, lo que los convierte en una opción discreta, cómoda y sin restricciones para tu vida diaria.</p>
+        </div>
+
+        <!-- Tabla comparativa -->
+        <div>
+          <div class="compare-table">
+            <div class="compare-table__header">
+              <div class="compare-table__header-cell"></div>
+              <div class="compare-table__header-cell alin">Alineadores</div>
+              <div class="compare-table__header-cell brack">Brackets</div>
+            </div>
+            <div class="compare-table__row">
+              <div class="compare-table__cell">Visibilidad</div>
+              <div class="compare-table__cell alin-val">Prácticamente invisibles</div>
+              <div class="compare-table__cell brack-val">Muy visibles</div>
+            </div>
+            <div class="compare-table__row">
+              <div class="compare-table__cell">Higiene</div>
+              <div class="compare-table__cell alin-val">Sin restricciones</div>
+              <div class="compare-table__cell brack-val">Difícil cepillado</div>
+            </div>
+            <div class="compare-table__row">
+              <div class="compare-table__cell">Comodidad</div>
+              <div class="compare-table__cell alin-val">Sin alambres ni brackets</div>
+              <div class="compare-table__cell brack-val">Posibles rozaduras</div>
+            </div>
+            <div class="compare-table__row">
+              <div class="compare-table__cell">Alimentación</div>
+              <div class="compare-table__cell alin-val">Se retiran para comer</div>
+              <div class="compare-table__cell brack-val">Restricciones</div>
+            </div>
+            <div class="compare-table__row">
+              <div class="compare-table__cell">Planificación</div>
+              <div class="compare-table__cell alin-val">Digital, resultado previo</div>
+              <div class="compare-table__cell brack-val">Sin simulación previa</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 2. VENTAJAS ──────────────────────────────────────────── -->
+  <section class="ventajas" id="ventajas">
+    <div class="container">
+      <p class="section-eyebrow">6 RAZONES</p>
+      <h2 class="section-title">Por qué elegir alineadores invisibles</h2>
+      <p class="section-subtitle">Discreción, comodidad y resultados predecibles. Todo lo que una ortodoncia moderna debería ofrecerte.</p>
+
+      <div class="ventajas__grid">
+
+        <!-- 1 -->
+        <div class="ventaja-card">
+          <div class="ventaja-card__icon">
+            <!-- Ojo -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <h3 class="ventaja-card__title">Prácticamente invisibles</h3>
+          <p class="ventaja-card__desc">Nadie nota que llevás ortodoncia. Ideales para profesionales, adultos y adolescentes que buscan discreción total.</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="ventaja-card">
+          <div class="ventaja-card__icon">
+            <!-- Flechas circulares -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1 4 1 10 7 10"/>
+              <polyline points="23 20 23 14 17 14"/>
+              <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/>
+            </svg>
+          </div>
+          <h3 class="ventaja-card__title">Removibles</h3>
+          <p class="ventaja-card__desc">Se retiran para comer, beber y cepillarte. Mantenés tu rutina de higiene sin ningún cambio y disfrutás de todas tus comidas.</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="ventaja-card">
+          <div class="ventaja-card__icon">
+            <!-- Rayo -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <h3 class="ventaja-card__title">Resultados más rápidos</h3>
+          <p class="ventaja-card__desc">Resultados visibles desde las primeras semanas. Tratamientos desde 6 meses para casos leves con movimientos más precisos.</p>
+        </div>
+
+        <!-- 4 -->
+        <div class="ventaja-card">
+          <div class="ventaja-card__icon">
+            <!-- Target/Diana -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <h3 class="ventaja-card__title">Predecibles</h3>
+          <p class="ventaja-card__desc">Planificación 100% digital. Ves en pantalla cómo queda tu sonrisa antes de empezar. Tiempos y precios cerrados desde el día 1.</p>
+        </div>
+
+        <!-- 5 -->
+        <div class="ventaja-card">
+          <div class="ventaja-card__icon">
+            <!-- Corazón -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+            </svg>
+          </div>
+          <h3 class="ventaja-card__title">Sin dolor</h3>
+          <p class="ventaja-card__desc">Materiales suaves y biomecánica controlada. Sin alambres ni brackets que irriten. Sin urgencias ni visitas de emergencia.</p>
+        </div>
+
+        <!-- 6 -->
+        <div class="ventaja-card">
+          <div class="ventaja-card__icon">
+            <!-- Monitor -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="ventaja-card__title">Tecnología 3D</h3>
+          <p class="ventaja-card__desc">Escaneo intraoral digital, software de planificación y alineadores fabricados a medida con materiales premium.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 3. PROCESO / TIMELINE ────────────────────────────────── -->
+  <section class="proceso" id="proceso">
+    <div class="container">
+      <p class="section-eyebrow">EL PROCESO</p>
+      <h2 class="section-title">9 pasos hacia tu sonrisa ideal</h2>
+      <p class="section-subtitle">Un camino claro, predecible y acompañado desde el primer día hasta el resultado final.</p>
+
+      <div class="timeline">
+
+        <div class="timeline__item">
+          <div class="timeline__content">
+            <h3 class="timeline__step-title">Diagnóstico inicial</h3>
+            <p class="timeline__step-desc">Consulta gratuita, escaneo intraoral 3D y radiografías para evaluar si sos candidato.</p>
+          </div>
+          <div class="timeline__number">
+            <div class="timeline__num-circle">1</div>
+          </div>
+          <div class="timeline__spacer"></div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__spacer"></div>
+          <div class="timeline__number">
+            <div class="timeline__num-circle">2</div>
+          </div>
+          <div class="timeline__content">
+            <h3 class="timeline__step-title">Simulación digital</h3>
+            <p class="timeline__step-desc">Visualización en 3D de cómo quedará tu sonrisa antes de empezar el tratamiento.</p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__content">
+            <h3 class="timeline__step-title">Aprobación del plan</h3>
+            <p class="timeline__step-desc">Revisión y ajustes junto al especialista. Definición de tiempos y precio final.</p>
+          </div>
+          <div class="timeline__number">
+            <div class="timeline__num-circle">3</div>
+          </div>
+          <div class="timeline__spacer"></div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__spacer"></div>
+          <div class="timeline__number">
+            <div class="timeline__num-circle">4</div>
+          </div>
+          <div class="timeline__content">
+            <h3 class="timeline__step-title">Fabricación de alineadores</h3>
+            <p class="timeline__step-desc">Producción a medida en laboratorio con materiales de alta calidad.</p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__content">
+            <h3 class="timeline__step-title">Inicio del tratamiento</h3>
+            <p class="timeline__step-desc">Colocación de attachments (si son necesarios) y entrega del primer juego de alineadores.</p>
+          </div>
+          <div class="timeline__number">
+            <div class="timeline__num-circle">5</div>
+          </div>
+          <div class="timeline__spacer"></div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__spacer"></div>
+          <div class="timeline__number">
+            <div class="timeline__num-circle">6</div>
+          </div>
+          <div class="timeline__content">
+            <h3 class="timeline__step-title">Cambios cada 2 semanas</h3>
+            <p class="timeline__step-desc">Pasás al siguiente alineador cada 14 días, moviendo gradualmente tus dientes.</p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__content">
+            <h3 class="timeline__step-title">Controles mensuales</h3>
+            <p class="timeline__step-desc">Revisión presencial con el especialista para evaluar avances y ajustar.</p>
+          </div>
+          <div class="timeline__number">
+            <div class="timeline__num-circle">7</div>
+          </div>
+          <div class="timeline__spacer"></div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__spacer"></div>
+          <div class="timeline__number">
+            <div class="timeline__num-circle">8</div>
+          </div>
+          <div class="timeline__content">
+            <h3 class="timeline__step-title">Refinamiento (si aplica)</h3>
+            <p class="timeline__step-desc">Si se necesitan ajustes finales, fabricamos un set adicional sin costo.</p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__content">
+            <h3 class="timeline__step-title">Retención</h3>
+            <p class="timeline__step-desc">Colocación del retenedor para mantener tu nueva sonrisa de por vida.</p>
+          </div>
+          <div class="timeline__number">
+            <div class="timeline__num-circle">9</div>
+          </div>
+          <div class="timeline__spacer"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 4. CTA SIMULACIÓN ────────────────────────────────────── -->
+  <section class="cta-sim">
+    <div class="container">
+      <p class="section-eyebrow light">ANTES DE DECIDIR</p>
+      <h2 class="cta-sim__title">Mirá cómo quedaría <strong>tu sonrisa</strong></h2>
+      <p class="cta-sim__sub">En la primera consulta gratuita realizamos el escaneo 3D y te mostramos una proyección virtual de tu resultado final antes de que tomes cualquier decisión.</p>
+      <a href="index.html#reserva" class="btn btn--white-solid btn--lg">Agendá tu consulta gratuita</a>
+    </div>
+  </section>
+
+  <!-- ─── 5. CASOS ─────────────────────────────────────────────── -->
+  <section class="casos" id="casos">
+    <div class="container">
+      <p class="section-eyebrow">¿ES PARA VOS?</p>
+      <h2 class="section-title">Casos que tratamos con alineadores</h2>
+      <p class="section-subtitle">Los alineadores son efectivos para una amplia variedad de situaciones. Consultá si tu caso es candidato.</p>
+
+      <div class="casos__grid">
+
+        <div class="caso-card">
+          <div class="caso-card__check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h3 class="caso-card__title">Apiñamiento dental</h3>
+          <p class="caso-card__desc">Dientes superpuestos o torcidos que necesitan alinearse correctamente.</p>
+        </div>
+
+        <div class="caso-card">
+          <div class="caso-card__check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h3 class="caso-card__title">Espacios entre dientes</h3>
+          <p class="caso-card__desc">Diastemas o separaciones que afectan la estética y la función.</p>
+        </div>
+
+        <div class="caso-card">
+          <div class="caso-card__check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h3 class="caso-card__title">Mordida cruzada</h3>
+          <p class="caso-card__desc">Cuando los dientes superiores quedan dentro de los inferiores al cerrar.</p>
+        </div>
+
+        <div class="caso-card">
+          <div class="caso-card__check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h3 class="caso-card__title">Sobremordida</h3>
+          <p class="caso-card__desc">Los dientes superiores cubren en exceso a los inferiores.</p>
+        </div>
+
+        <div class="caso-card">
+          <div class="caso-card__check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h3 class="caso-card__title">Mordida abierta</h3>
+          <p class="caso-card__desc">Los dientes no hacen contacto al cerrar la boca.</p>
+        </div>
+
+        <div class="caso-card">
+          <div class="caso-card__check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h3 class="caso-card__title">Recidivas de ortodoncia</h3>
+          <p class="caso-card__desc">Dientes que se movieron después de un tratamiento previo con brackets.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 6. TECNOLOGÍA ────────────────────────────────────────── -->
+  <section class="tecnologia" id="tecnologia">
+    <div class="container">
+      <p class="section-eyebrow">TECNOLOGÍA</p>
+      <h2 class="section-title">Lo último en planificación digital</h2>
+      <p class="section-subtitle">Cada detalle de tu tratamiento está respaldado por tecnología de última generación para garantizar precisión y resultados.</p>
+
+      <div class="tech-grid">
+
+        <div class="tech-card">
+          <div class="tech-card__icon">
+            <!-- Escaneo 3D -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 3H3a2 2 0 00-2 2v2M19 3h2a2 2 0 012 2v2M5 21H3a2 2 0 01-2-2v-2M19 21h2a2 2 0 002-2v-2"/>
+              <rect x="7" y="7" width="10" height="10" rx="2"/>
+            </svg>
+          </div>
+          <div class="tech-card__body">
+            <h3 class="tech-card__title">Escáner intraoral 3D</h3>
+            <p class="tech-card__desc">Reemplaza las molestas impresiones tradicionales con un escaneo digital instantáneo y preciso.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card__icon">
+            <!-- Software -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <div class="tech-card__body">
+            <h3 class="tech-card__title">Software de planificación</h3>
+            <p class="tech-card__desc">Diseño digital del tratamiento con visualización del resultado final paso a paso.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card__icon">
+            <!-- Impresión 3D -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9V2h12v7"/>
+              <path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
+              <rect x="6" y="14" width="12" height="8"/>
+            </svg>
+          </div>
+          <div class="tech-card__body">
+            <h3 class="tech-card__title">Impresión 3D y materiales premium</h3>
+            <p class="tech-card__desc">Alineadores fabricados con tecnología de última generación para máxima eficacia.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card__icon">
+            <!-- Seguimiento -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6"  y1="20" x2="6"  y2="14"/>
+            </svg>
+          </div>
+          <div class="tech-card__body">
+            <h3 class="tech-card__title">Seguimiento digital</h3>
+            <p class="tech-card__desc">Monitoreo continuo del avance con controles presenciales mensuales y soporte permanente.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 7. ¿PARA QUIÉN? ──────────────────────────────────────── -->
+  <section class="para-quien" id="para-quien">
+    <div class="container">
+      <p class="section-eyebrow">¿PARA QUIÉN?</p>
+      <h2 class="section-title">Los alineadores se adaptan a cada perfil</h2>
+      <p class="section-subtitle">Desde adolescentes hasta adultos mayores, el tratamiento se personaliza para cada etapa de la vida.</p>
+
+      <div class="perfil-grid">
+
+        <div class="perfil-card">
+          <div class="perfil-card__num">01</div>
+          <h3 class="perfil-card__title">Adultos profesionales</h3>
+          <p class="perfil-card__desc">Buscan discreción durante el tratamiento sin que interfiera en su vida laboral o social.</p>
+        </div>
+
+        <div class="perfil-card">
+          <div class="perfil-card__num">02</div>
+          <h3 class="perfil-card__title">Adolescentes</h3>
+          <p class="perfil-card__desc">A partir de los 12 años con dentición permanente. Cómodos, sin restricciones y fáciles de mantener.</p>
+        </div>
+
+        <div class="perfil-card">
+          <div class="perfil-card__num">03</div>
+          <h3 class="perfil-card__title">Deportistas</h3>
+          <p class="perfil-card__desc">Pueden retirarse durante actividades físicas o deportes de contacto, sin riesgo de lesiones.</p>
+        </div>
+
+        <div class="perfil-card">
+          <div class="perfil-card__num">04</div>
+          <h3 class="perfil-card__title">Pacientes con recidivas</h3>
+          <p class="perfil-card__desc">Quienes ya usaron brackets y vieron que sus dientes se movieron nuevamente.</p>
+        </div>
+
+        <div class="perfil-card">
+          <div class="perfil-card__num">05</div>
+          <h3 class="perfil-card__title">Mayores de 50</h3>
+          <p class="perfil-card__desc">Con consideraciones especiales para encías sensibles. El tratamiento se adapta a cada situación.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 8. CUIDADOS ──────────────────────────────────────────── -->
+  <section class="cuidados">
+    <div class="container">
+      <p class="section-eyebrow">DURANTE EL TRATAMIENTO</p>
+      <h2 class="section-title">6 hábitos para un resultado perfecto</h2>
+      <p class="section-subtitle">El éxito del tratamiento depende en gran parte de estos hábitos simples que hacen toda la diferencia.</p>
+
+      <div class="cuidados__grid">
+
+        <div class="cuidado-card">
+          <div class="cuidado-card__num">01</div>
+          <h3 class="cuidado-card__title">20–22 horas al día</h3>
+          <p class="cuidado-card__desc">Usá los alineadores el tiempo indicado. Es el factor más importante para que el tratamiento funcione en el plazo previsto.</p>
+        </div>
+
+        <div class="cuidado-card">
+          <div class="cuidado-card__num">02</div>
+          <h3 class="cuidado-card__title">Retiralos para comer</h3>
+          <p class="cuidado-card__desc">Solo se sacan para comer, beber (excepto agua) y cepillarte. Guardalos siempre en su estuche.</p>
+        </div>
+
+        <div class="cuidado-card">
+          <div class="cuidado-card__num">03</div>
+          <h3 class="cuidado-card__title">Higiene después de comer</h3>
+          <p class="cuidado-card__desc">Cepillá tus dientes después de cada comida antes de volver a colocar los alineadores.</p>
+        </div>
+
+        <div class="cuidado-card">
+          <div class="cuidado-card__num">04</div>
+          <h3 class="cuidado-card__title">Limpieza de los alineadores</h3>
+          <p class="cuidado-card__desc">Limpialos con agua tibia y jabón neutro. Nunca con agua caliente ni pasta dental.</p>
+        </div>
+
+        <div class="cuidado-card">
+          <div class="cuidado-card__num">05</div>
+          <h3 class="cuidado-card__title">Guardá el estuche</h3>
+          <p class="cuidado-card__desc">Cuando no los uses, siempre en el estuche. Evitá envolverlos en servilletas para no tirarlos accidentalmente.</p>
+        </div>
+
+        <div class="cuidado-card">
+          <div class="cuidado-card__num">06</div>
+          <h3 class="cuidado-card__title">Cumplí los controles</h3>
+          <p class="cuidado-card__desc">Asistí a las revisiones mensuales presenciales para que el especialista evalúe el avance.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA FINAL ────────────────────────────────────────────── -->
+  <section class="alin-cta">
+    <div class="container">
+      <p class="section-eyebrow light">PRIMERA VISITA GRATUITA</p>
+      <h2 class="section-title light">¿Listo para ver tu nueva sonrisa?</h2>
+      <p class="section-subtitle light">La primera consulta es completamente gratuita. Evaluación clínica, escaneo 3D y simulación de tu sonrisa incluidos sin costo.</p>
+      <div class="alin-cta__actions">
+        <a href="index.html#reserva" class="btn btn--white-solid btn--lg">Agendá tu consulta gratuita</a>
+        <a href="https://wa.me/5491127553902" target="_blank" class="btn btn--outline-white btn--lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribinos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <img src="logo.svg" alt="Smart Smile" class="footer__logo" />
+        <p class="footer__copy">&copy; 2025 Smart Smile. Todos los derechos reservados.</p>
+        <div class="footer__links">
+          <a href="#">Política de privacidad</a>
+          <a href="#">Términos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
